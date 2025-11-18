@@ -3,48 +3,56 @@
 /**
  * Template Name: Home
  */
+get_header();
 ?>
 
-<?= get_header() ?>
-
 <div class="relative">
-  <img lazyload src="<?= get_template_directory_uri(); ?>/images/introduction/background.png" alt="" fetchpriority="high" class="select-none w-full h-auto inset-0 absolute object-cover" />
-  <img lazyload src="<?= get_template_directory_uri(); ?>/images/dev-overlay.jpg" alt="" id="dev-overlay" class="z-[100] select-none w-full h-auto inset-0 absolute object-cover hidden" />
+  <img lazyload src="<?= get_template_directory_uri(); ?>/images/introduction/background.png" alt="" fetchpriority="high" class="select-none w-full h-auto inset-0 absolute object-cover md:block hidden" />
   <?php get_template_part('template-parts/navigation') ?>
-  <main class="relative pt-[92px]">
-    <div class="max-w-screen-xl mx-auto px-10">
-      <section class="py-36">
-        <div class="max-w-[692px] py-11 px-8 bg-white rounded-[32px] border border-black/10 flex flex-col gap-5">
-          <h1 class="text-[52px]/[60px] text-brand-orange font-bold tracking-[-1.04px]">
+  <main class="relative md:pt-[92px]">
+    <div class="max-w-screen-xl mx-auto px-5 md:px-10">
+      <section class="pt-32 md:py-36">
+        <div class="max-w-[692px] p-8 md:py-11 md:px-8 bg-white rounded-[32px] border border-black/10 flex flex-col gap-5">
+          <h1 class="text-[32px]/[38px] md:text-[52px]/[60px] text-brand-orange font-bold tracking-[-1.04px]">
             <?= get_field('introduction')['heading_part_#1'] ?>&nbsp;<span class="text-brand-black"><?= get_field('introduction')['heading_part_#2'] ?></span>
           </h1>
-          <h2 class="max-w-[420px] text-brand-black text-2xl/[125%] font-semibold"><?= get_field('introduction')['subheading'] ?></h2>
+          <h2 class="max-w-[420px] text-brand-black text-xl/[125%] md:text-2xl/[125%] font-semibold"><?= get_field('introduction')['subheading'] ?></h2>
         </div>
         <div class="mt-3 max-w-[574px] p-6 bg-white rounded-full border border-black/10 flex gap-1.5">
-          <a href="<?= get_field('introduction')['free_trial_button']['url'] ?>" target="<?= get_field('introduction')['free_trial_button']['target'] ?>" class="flex-1 px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-white text-xl bg-brand-orange rounded-full"><?= get_field('introduction')['free_trial_button']['title'] ?></a>
-          <svg width="31" height="60" viewBox="0 0 31 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          <a href="<?= get_field('introduction')['free_trial_button']['url'] ?>" target="<?= get_field('introduction')['free_trial_button']['target'] ?>" class="md:flex-1 px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full"><?= get_field('introduction')['free_trial_button']['title'] ?></a>
+
+
+          <svg class="w-[26px] h-[42px] md:hidden" width="26" height="42" viewBox="0 0 26 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="20" height="36" rx="10" stroke="#F75F24" stroke-width="6" />
+          </svg>
+
+
+          <svg class="w-[31px] h-[60px] hidden md:block" width="31" height="60" viewBox="0 0 31 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="3" width="25" height="54" rx="12.5" stroke="#F75F24" stroke-width="6" />
           </svg>
 
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="md:block hidden" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="3" width="54" height="54" rx="27" stroke="#F75F24" stroke-width="6" />
           </svg>
-          <a href="<?= get_field('introduction')['talk_with_us_button']['url'] ?>" target="<?= get_field('introduction')['talk_with_us_button']['target'] ?>" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('introduction')['talk_with_us_button']['title'] ?></a>
+
+
+          <a href="<?= get_field('introduction')['talk_with_us_button']['url'] ?>" target="<?= get_field('introduction')['talk_with_us_button']['target'] ?>" class="px-4 md:px-9 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('introduction')['talk_with_us_button']['title'] ?></a>
 
 
         </div>
       </section>
 
-      <section class="pt-36 pb-10" id="features">
-        <div class="flex items-end justify-between px-4">
-          <h3 class="text-[48px]/[110%] tracking-[-0.96px] text-brand-black font-bold max-w-[526px]">
+      <section class="pt-24 md:pt-36 pb-10" id="features">
+        <div class="gap-5 md:gap-0 md:flex-row flex-col flex md:items-end justify-between md:px-4">
+          <h3 class="text-[28px]/[110%] tracking-[-0.56px] md:text-[48px]/[110%] md:tracking-[-0.96px] text-brand-black font-bold max-w-[526px]">
             <?= get_field('features')['title'] ?>
             <!-- TODO: Make this editable -->
             <span x-data="{ words: ['profitable', 'efficient', 'innovative', 'successful', 'scalable'] }" x-typewriter.1500ms.cursor="words"></span>
           </h3>
-          <p class="text-2xl/[130%] mr-14 text-brand-secondary-black font-semibold max-w-[313px]"><?= get_field('features')['subtitle'] ?></p>
+          <p class="text-xl/[125%] md:text-2xl/[130%] md:mr-14 text-brand-secondary-black font-semibold max-w-[313px]"><?= get_field('features')['subtitle'] ?></p>
         </div>
-        <div class="mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center max-h-[550px]">
+        <div class="mt-4 md:mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center max-h-[550px]">
 
           <video autoplay loop muted playsinline class="w-full h-auto">
             <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
@@ -58,28 +66,28 @@
         </div>
 
         <!-- TODO - repeater in WordPress -->
-        <div class="grid grid-cols-3 mt-20 gap-4">
-          <div class="flex flex-col gap-6">
-            <div class="flex flex-col gap-1 px-3">
-              <h4 class="text-brand-black text-2xl font-bold leading-[normal]">Automate data</h4>
+        <div class="grid md:grid-cols-3 mt-10 md:mt-20 gap-6">
+          <div class="flex flex-col gap-3 md:gap-6">
+            <div class="flex flex-col gap-1 md:px-3">
+              <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]">Automate data</h4>
               <p class="text-base/[24px] font-medium text-brand-black/90">Advise with complete and accurate data.</p>
             </div>
             <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden px-4 py-14">
               <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/action-cards.svg" alt="Automate data" />
             </div>
           </div>
-          <div class="flex flex-col gap-6">
-            <div class="flex flex-col gap-1 px-3">
-              <h4 class="text-brand-black text-2xl font-bold leading-[normal]">Automate meetings</h4>
+          <div class="flex flex-col gap-3 md:gap-6">
+            <div class="flex flex-col gap-1 md:px-3">
+              <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]">Automate meetings</h4>
               <p class="text-base/[24px] font-medium text-brand-black/90">Advise with complete and accurate data.</p>
             </div>
             <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
               <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/meeting-cards.svg" alt="Automate meetings" />
             </div>
           </div>
-          <div class="flex flex-col gap-6">
-            <div class="flex flex-col gap-1 px-3">
-              <h4 class="text-brand-black text-2xl font-bold leading-[normal]">Automate reports</h4>
+          <div class="flex flex-col gap-3 md:gap-6">
+            <div class="flex flex-col gap-1 md:px-3">
+              <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]">Automate reports</h4>
               <p class="text-base/[24px] font-medium text-brand-black/90">Generate reports in seconds.</p>
             </div>
             <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
@@ -88,9 +96,9 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-3 mt-20 gap-4">
+        <div class="grid md:grid-cols-3 mt-20 gap-2 md:gap-4">
           <div>
-            <h3 class="text-2xl/[130%] text-brand-black font-semibold max-w-[273px] pl-4"><?= get_field('ai_preview')['title'] ?></h3>
+            <h3 class="text-xl/[125%] md:text-2xl/[130%] text-brand-black font-semibold md:max-w-[273px] md:pl-4"><?= get_field('ai_preview')['title'] ?></h3>
           </div>
           <p class="text-base/[24px] font-medium text-brand-black flex items-center"><?= get_field('ai_preview')['subtitle'] ?></p>
         </div>
@@ -109,11 +117,11 @@
 
     <section class="relative" id="pricing">
       <img lazyload src="<?= get_template_directory_uri(); ?>/images/pricing/background.png" alt="" class="w-full h-full absolute object-cover" />
-      <div class="max-w-screen-xl mx-auto px-10 relative z-10">
-        <div class="py-72 flex items-stretch justify-between gap-3">
-          <div class="flex flex-col gap-5 flex-1 mr-20">
-            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black"><?= get_field('pricing')['title'] ?></h3>
-            <p class="text-xl/[130%] text-black font-medium"><?= get_field('pricing')['subtitle'] ?></p>
+      <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
+        <div class="py-12 md:py-72 flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-3">
+          <div class="flex flex-col gap-4 md:gap-5 flex-1 md:mr-20">
+            <h3 class="text-[28px]/[110%] tracking-[-0.56px] md:text-[48px]/[110%] md:tracking-[-0.96px] font-bold text-black"><?= get_field('pricing')['title'] ?></h3>
+            <p class="text-lg/[125%] md:text-xl/[130%] text-black font-medium"><?= get_field('pricing')['subtitle'] ?></p>
           </div>
 
           <!-- TODO - repeater in WordPress -->
@@ -134,17 +142,17 @@
     </section>
 
     <section id="about">
-      <div class="max-w-screen-xl mx-auto px-10 relative z-10">
-        <div class="py-32 flex items-stretch justify-between gap-3">
+      <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
+        <div class="py-12 md:py-32 flex flex-col md:flex-row items-stretch justify-between gap-3">
           <div class="flex flex-col gap-5 flex-1 max-w-[472px]">
-            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black"><?= get_field('about')['title'] ?></h3>
-            <p class="mt-10 text-2xl/[normal] text-brand-orange font-bold"><?= get_field('about')['subtitle'] ?></p>
-            
-            <div class="text-xl/[130%] font-semibold text-brand-black/80 flex flex-col gap-4"><?= get_field('about')['description'] ?></div>
+            <h3 class="text-[28px]/[110%] tracking-[-0.56px] md:text-[48px]/[110%] md:tracking-[-0.96px] font-bold text-black"><?= get_field('about')['title'] ?></h3>
+            <p class="md:mt-10 text-2xl/[normal] text-brand-orange font-bold"><?= get_field('about')['subtitle'] ?></p>
 
-            <div class="flex gap-1.5 mt-6 items-start">
-              <a href="<?= get_field('about')['free_trial_button']['url'] ?>" target="<?= get_field('about')['free_trial_button']['target'] ?>" class=" px-8 py-4 h-[60px] flex items-center justify-center font-bold text-white text-xl bg-brand-orange rounded-full"><?= get_field('about')['free_trial_button']['title'] ?></a>
-              <a href="<?= get_field('about')['talk_with_us_button']['url'] ?>" target="<?= get_field('about')['talk_with_us_button']['target'] ?>" class=" px-8 py-4 h-[60px] flex items-center justify-center font-bold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('about')['talk_with_us_button']['title'] ?></a>
+            <div class="md:text-xl/[130%] font-semibold text-brand-black/80 flex flex-col gap-4"><?= get_field('about')['description'] ?></div>
+
+            <div class="flex gap-1.5 md:mt-6 items-start">
+              <a href="<?= get_field('about')['free_trial_button']['url'] ?>" target="<?= get_field('about')['free_trial_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-white text-base md:text-xl bg-brand-orange rounded-full"><?= get_field('about')['free_trial_button']['title'] ?></a>
+              <a href="<?= get_field('about')['talk_with_us_button']['url'] ?>" target="<?= get_field('about')['talk_with_us_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('about')['talk_with_us_button']['title'] ?></a>
             </div>
           </div>
           <div class="max-w-[590px]">
@@ -157,11 +165,12 @@
     <!-- TODO: Make FAQ editable in WordPress -->
     <section class="relative" id="faq">
       <img lazyload src="<?= get_template_directory_uri(); ?>/images/faqs/background.png" alt="" class="w-full h-full absolute object-cover object-top" />
-      <div class="max-w-screen-xl mx-auto px-10 relative z-10">
-        <div class="py-32 flex flex-col" x-data="{ activeCategory: 'data', openFaq: 1 }">
-          <div class="flex flex-col gap-5 flex-1 mb-8 text-center items-center">
-            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black">FAQ</h3>
-            <div class="p-1 bg-brand-secondary-grey rounded-full flex gap-0.5">
+      <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
+        <div class="py-12 md:py-32 flex flex-col" x-data="{ activeCategory: 'data', openFaq: 1 }">
+          <div class="flex flex-col gap-5 flex-1 mb-8 md:text-center md:items-center">
+            <h3 class="text-[28px]/[110%] md:text-[48px]/[110%] tracking-[-0.56px] md:tracking-[-0.96px] font-bold text-black">FAQ</h3>
+
+            <div class="md:p-1 md:bg-brand-secondary-grey md:rounded-full flex gap-0.5 overflow-auto whitespace-nowrap scrollbar-hide">
               <button @click="activeCategory = 'data'" :class="{ 'bg-brand-black text-white': activeCategory === 'data', 'hover:bg-brand-black/10': activeCategory !== 'data' }" class="rounded-full font-semibold py-2 px-4 text-base/[20px] text-brand-black">Data & security</button>
               <button @click="activeCategory = 'ai'" :class="{ 'bg-brand-black text-white': activeCategory === 'ai', 'hover:bg-brand-black/10': activeCategory !== 'ai' }" class="rounded-full font-medium py-2 px-4 text-base/[20px] text-brand-black">How AI works</button>
               <button @click="activeCategory = 'finance'" :class="{ 'bg-brand-black text-white': activeCategory === 'finance', 'hover:bg-brand-black/10': activeCategory !== 'finance' }" class="rounded-full font-medium py-2 px-4 text-base/[20px] text-brand-black">Finance</button>
@@ -173,7 +182,7 @@
             <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
               <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 1 ? null : 1">
                 <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 1 }">
+                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 1 }">
                   <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
                 </svg>
               </div>
@@ -187,7 +196,7 @@
             <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
               <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 2 ? null : 2">
                 <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 2 }">
+                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 2 }">
                   <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
                 </svg>
               </div>
@@ -195,7 +204,7 @@
             <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
               <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 3 ? null : 3">
                 <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 3 }">
+                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 3 }">
                   <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
                 </svg>
               </div>
@@ -203,7 +212,7 @@
             <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
               <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 4 ? null : 4">
                 <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 4 }">
+                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 4 }">
                   <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
                 </svg>
               </div>
@@ -211,7 +220,7 @@
             <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
               <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 5 ? null : 5">
                 <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 5 }">
+                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 5 }">
                   <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
                 </svg>
               </div>
@@ -224,10 +233,10 @@
 
     <section class="relative" id="team">
 
-      <div class="max-w-[972px] mx-auto px-10 relative z-10 pb-28" x-data="{ activeMember: null }" @click.outside="activeMember = null">
-        <h3 class="max-w-[860px] mx-auto mb-8 text-center text-brand-black text-[48px]/[110%] tracking-[-0.96px] font-bold"><?=  get_field('team')['title'] ?></h3>
+      <div class="max-w-[972px] mx-auto px-5 md:px-10 relative z-10 pb-10 md:pb-28" x-data="{ activeMember: null }" @click.outside="activeMember = null">
+        <h3 class="max-w-[860px] mx-auto mb-8 text-center text-brand-black text-[28px]/[110%] md:text-[48px]/[110%] tracking-[-0.56px] md:tracking-[-0.96px] font-bold [&_br]:hidden md:[&_br]:inline"><?= str_replace(['<p>', '</p>'], '', get_field('team')['title']) ?></h3>
 
-        <div class="flex flex-col gap-2 text-xl/[130%] text-brand-black mx-auto max-w-[660px] w-full font-semibold">
+        <div class="flex flex-col gap-2 text-base/[130%] md:text-xl/[130%] text-brand-black mx-auto max-w-[660px] w-full font-semibold md:text-left text-center">
           <?= get_field('team')['description'] ?>
         </div>
 
@@ -332,9 +341,9 @@
 
 
         <div class="mt-4 flex items-center justify-center">
-          <a href="<?= get_field('team')['button']['url'] ?>" target="<?= get_field('team')['button']['target'] ?>" class="flex gap-1">
-            <span class="px-6 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('team')['button']['title'] ?></span>
-            <span class="px-8 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="<?= get_field('team')['button']['url'] ?>" target="<?= get_field('team')['button']['target'] ?>" class="flex gap-1 w-full md:w-auto">
+            <span class="w-full md:w-auto bg-brand-orange md:bg-transparent text-white px-6 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl md:text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('team')['button']['title'] ?></span>
+            <span class="px-8 py-4 h-[60px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hidden md:flex"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.25 8.33333H16.25M16.25 8.33333L9.16667 1.25M16.25 8.33333L9.16667 15.4167" stroke="#F75F24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </span>
@@ -353,22 +362,22 @@
       </video>
 
       <div class="relative z-10 py-32">
-        <div class="max-w-screen-xl mx-auto text-center">
-          <h4 class="text-white text-[48px]/[110%] tracking-[-0.96px] font-bold"><?=  get_field('footer')['title'] ?></h4>
-          <p class="mt-3 text-white text-xl/[130%] font-semibold mx-auto max-w-[590px]"><?= get_field('footer')['subtitle'] ?></p>
+        <div class="max-w-screen-xl mx-auto text-center px-3">
+          <h4 class="text-white text-[28px]/[110%] md:text-[48px]/[110%] tracking-[-0.56px] md:tracking-[-0.96px] font-bold"><?= get_field('footer')['title'] ?></h4>
+          <p class="mt-3 text-white text-base/[130%] md:text-xl/[130%] font-semibold mx-auto max-w-[590px]"><?= get_field('footer')['subtitle'] ?></p>
 
-          <div class="mt-11 flex items-center justify-center gap-1.5">
-            <a href="<?= get_field('footer')['free_trial_button']['url'] ?>" target="<?= get_field('footer')['free_trial_button']['target'] ?>" class="px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full"><?= get_field('footer')['free_trial_button']['title'] ?></a>
+          <div class="mt-5 md:mt-11 flex items-center justify-center gap-1.5">
+            <a href="<?= get_field('footer')['free_trial_button']['url'] ?>" target="<?= get_field('footer')['free_trial_button']['target'] ?>" class="px-5 md:px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full"><?= get_field('footer')['free_trial_button']['title'] ?></a>
             <a href="<?= get_field('footer')['talk_with_us_button']['url'] ?>" target="<?= get_field('footer')['talk_with_us_button']['target'] ?>" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-[6px] ring-inset ring-white"><?= get_field('footer')['talk_with_us_button']['title'] ?></a>
           </div>
         </div>
       </div>
 
       <div class="relative z-10 rounded-t-[52px] overflow-hidden">
-        <div class="flex">
+        <div class="flex flex-col">
           <div class="flex-1 bg-brand-grey"></div>
           <div class="max-w-screen-xl mx-auto">
-            <div class="text-brand-black font-semibold flex items-center justify-start leading-[125%] bg-brand-grey py-16">
+            <div class="text-brand-black font-semibold flex items-center justify-between md:justify-start leading-[125%] bg-brand-grey pt-16 pb-24 md:py-16 px-4">
 
               <a href="#" class="mr-5" title="Visit our LinkedIn">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -387,13 +396,17 @@
               ));
               ?>
             </div>
-            <img lazyload src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="w-full h-auto" />
+            <div class="flex overflow-hidden">
+              <div class="w-4 flex-shrink-0 bg-brand-grey"></div>
+              <img lazyload src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="flex-1 h-auto w-[calc(100dvw-2rem)]" />
+              <div class="w-4 flex-shrink-0 bg-brand-grey"></div>
+            </div>
           </div>
           <div class="flex-1 bg-brand-grey"></div>
         </div>
 
-        <div class="text-brand-black font-semibold flex items-center justify-start text-base leading-[125%] bg-brand-grey pt-16 pb-32">
-          <div class="max-w-screen-xl px-10  w-full mx-auto flex items-start justify-between">
+        <div class="text-brand-black font-semibold flex items-center justify-start text-base leading-[125%] bg-brand-grey pt-32 md:pt-16 pb-16 md:pb-32">
+          <div class="max-w-screen-xl px-5 md:px-10 w-full mx-auto flex flex-col-reverse md:flex-row items-start justify-between gap-6">
             <div class="">
               <?php
               wp_nav_menu(array(
@@ -408,7 +421,7 @@
 
             <div class="flex flex-col gap-1">
               <span>Contact</span>
-              <a href="mailto:hello@afternoon.co.uk" class="hover:text-brand-orange">hello@afternoon.co.uk</a>
+              <a href="mailto:hello@afternoon.co.uk" class="text-brand-orange md:text-brand-black hover:text-brand-orange">hello@afternoon.co.uk</a>
             </div>
           </div>
         </div>
@@ -416,27 +429,5 @@
     </footer>
   </main>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const overlay = document.getElementById('dev-overlay');
-    let isGKeyPressed = false;
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'g' && !isGKeyPressed) {
-        isGKeyPressed = true;
-        overlay.classList.remove('hidden');
-      }
-    });
-
-    document.addEventListener('keyup', function(e) {
-      if (e.key === 'g') {
-        isGKeyPressed = false;
-        overlay.classList.add('hidden');
-      }
-    });
-
-  });
-</script>
 
 <?php get_footer(); ?>

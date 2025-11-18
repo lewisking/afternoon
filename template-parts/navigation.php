@@ -1,6 +1,6 @@
 <div class="fixed w-full z-[100]">
-  <div class="max-w-screen-xl mx-auto pl-16 pr-10">
-    <header class="relative pt-5 flex items-center justify-between">
+  <div class="max-w-screen-xl mx-auto px-5 md:pl-16 md:pr-10">
+    <header class="relative pt-10 md:pt-5 flex items-center justify-between">
       <a href="<?= site_url() ?>" title="Go to homepage">
         <svg width="175" height="40" viewBox="0 0 175 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_505_500)">
@@ -23,7 +23,7 @@
           </defs>
         </svg>
       </a>
-      <div class="py-4 pl-4 pr-4 rounded-full bg-brand-black text-white font-semibold flex items-center justify-center leading-[125%]">
+      <div class="hidden md:flex py-4 pl-4 pr-4 rounded-full bg-brand-black text-white font-semibold items-center justify-center leading-[125%]">
         <?php
         wp_nav_menu(array(
           'theme_location' => 'primary',
@@ -33,7 +33,7 @@
           'fallback_cb' => false,
         ));
         ?>
-        <a href="#" class="font-bold px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black">Log in</a>
+        <a href="#" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black">Log in</a>
       </div>
     </header>
   </div>
