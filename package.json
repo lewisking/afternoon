@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "watch": "postcss src/style.css -o dist/style.css --watch",
-    "build": "postcss src/style.css -o dist/style.css"
+    "watch": "postcss style.css -o style.min.css --watch",
+    "build": "postcss style.css -o style.min.css"
   },
   "keywords": [],
   "author": "",

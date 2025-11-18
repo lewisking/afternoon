@@ -14,9 +14,9 @@ function afternoon_enqueue_assets() {
     // Enqueue the compiled Tailwind CSS
     wp_enqueue_style(
         'afternoon-styles',
-        get_template_directory_uri() . '/dist/style.css',
+        get_template_directory_uri() . '/style.min.css',
         array(),
-        filemtime(get_template_directory() . '/dist/style.css')
+        filemtime(get_template_directory() . '/style.min.css')
     );
 }
 add_action('wp_enqueue_scripts', 'afternoon_enqueue_assets');
