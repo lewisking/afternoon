@@ -21,12 +21,10 @@
     if (have_posts()) :
       while (have_posts()) : the_post();
     ?>
-        <article class="mb-8 p-6 bg-white rounded-lg shadow-md">
-          <h2 class="text-2xl font-semibold mb-4">
-            <a href="<?php the_permalink(); ?>" class="text-blue-600 hover:text-blue-800">
-              <?php the_title(); ?>
-            </a>
-          </h2>
+        <h1 class="text-2xl font-semibold mb-4">
+          <?php the_title(); ?>
+        </h1>
+        <article class="p-6 bg-white rounded-lg shadow-md">
           <div class="prose max-w-none">
             <?php the_content(); ?>
           </div>
