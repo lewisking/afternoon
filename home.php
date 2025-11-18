@@ -1,0 +1,424 @@
+<?= get_header() ?>
+
+<div class="relative">
+  <img lazyload src="<?= get_template_directory_uri(); ?>/images/introduction/background.png" alt="" fetchpriority="high" class="select-none w-full h-auto inset-0 absolute object-cover" />
+  <img lazyload src="<?= get_template_directory_uri(); ?>/images/dev-overlay.jpg" alt="" id="dev-overlay" class="z-[100] select-none w-full h-auto inset-0 absolute object-cover hidden" />
+  <?php get_template_part('template-parts/navigation') ?>
+  <main class="relative pt-[92px]">
+    <div class="max-w-screen-xl mx-auto px-10">
+      <section class="py-36">
+        <div class="max-w-[692px] py-11 px-8 bg-white rounded-[32px] border border-black/10 flex flex-col gap-5">
+          <h1 class="text-[52px]/[60px] text-brand-orange font-bold tracking-[-1.04px]">
+            The AI-first operating model <span class="text-brand-black">for financial advice firms</span>
+          </h1>
+          <h2 class="max-w-[420px] text-brand-black text-2xl/[125%] font-semibold">Automate data collection, reporting and more with one solution.</h2>
+        </div>
+        <div class="mt-3 max-w-[574px] p-6 bg-white rounded-full border border-black/10 flex gap-1.5">
+          <a href="#" class="flex-1 px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-white text-xl bg-brand-orange rounded-full">Start free trial</a>
+          <svg width="31" height="60" viewBox="0 0 31 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="25" height="54" rx="12.5" stroke="#F75F24" stroke-width="6" />
+          </svg>
+
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="54" height="54" rx="27" stroke="#F75F24" stroke-width="6" />
+          </svg>
+          <a href="#" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange">Talk with us</a>
+
+
+        </div>
+      </section>
+
+      <section class="pt-36 pb-10" id="features">
+        <div class="flex items-end justify-between px-4">
+          <h3 class="text-[48px]/[110%] tracking-[-0.96px] text-brand-black font-bold max-w-[526px]">
+            Make your advice firm more <span x-data="{ words: ['profitable', 'efficient', 'innovative', 'successful', 'scalable'] }" x-typewriter.1500ms.cursor="words"></span>
+          </h3>
+          <p class="text-2xl/[130%] mr-14 text-brand-secondary-black font-semibold max-w-[313px]">Afternoon uses AI to automate the endless admin of financial advice.</p>
+        </div>
+        <div class="mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center max-h-[550px]">
+
+          <video autoplay loop muted playsinline class="w-full h-auto">
+            <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
+          </video>
+
+          <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/animation.jpg" alt="" class="absolute top-0 bottom-0 max-w-[430px]" />
+
+          <video autoplay loop muted playsinline class="absolute top-0 bottom-0 max-w-[430px]">
+            <source src="<?= get_template_directory_uri(); ?>/images/features/next-steps-example.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+        <div class="grid grid-cols-3 mt-20 gap-4">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-1 px-3">
+              <h4 class="text-brand-black text-2xl font-bold leading-[normal]">Automate data</h4>
+              <p class="text-base/[24px] font-medium text-brand-black/90">Advise with complete and accurate data.</p>
+            </div>
+            <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden px-4 py-14">
+              <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/action-cards.svg" alt="Automate data" />
+            </div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-1 px-3">
+              <h4 class="text-brand-black text-2xl font-bold leading-[normal]">Automate meetings</h4>
+              <p class="text-base/[24px] font-medium text-brand-black/90">Advise with complete and accurate data.</p>
+            </div>
+            <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
+              <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/meeting-cards.svg" alt="Automate meetings" />
+            </div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-1 px-3">
+              <h4 class="text-brand-black text-2xl font-bold leading-[normal]">Automate reports</h4>
+              <p class="text-base/[24px] font-medium text-brand-black/90">Generate reports in seconds.</p>
+            </div>
+            <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
+              <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/reports-cards.png" alt="Automate reports"  />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 mt-20 gap-4">
+          <div>
+            <h3 class="text-2xl/[130%] text-brand-black font-semibold max-w-[273px] pl-4">Find answers fast with SiestaAI</h3>
+          </div>
+          <p class="text-base/[24px] font-medium text-brand-black flex items-center">SiestaAI analyses client data points, providing answers and reports on whatever you need to know.</p>
+        </div>
+
+
+        <div class="mt-6">
+          <video autoplay loop muted playsinline class="w-full h-auto aspect-[1203/473] object-cover object-top rounded-[58px]">
+            <source src="<?= get_template_directory_uri(); ?>/images/features/ai-example.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+
+      </section>
+    </div>
+
+    <section class="relative" id="pricing">
+      <img lazyload src="<?= get_template_directory_uri(); ?>/images/pricing/background.png" alt="" class="w-full h-full absolute object-cover" />
+      <div class="max-w-screen-xl mx-auto px-10 relative z-10">
+        <div class="py-72 flex items-stretch justify-between gap-3">
+          <div class="flex flex-col gap-5 flex-1 mr-20">
+            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black">Pay a flat fee per client</h3>
+            <p class="text-xl/[130%] text-black font-medium">With Afternoon, you only pay for what you need. Start for free, then pay £5 per client, per month.</p>
+          </div>
+          <div class="p-8 rounded-[40px] bg-brand-orange flex-1 flex flex-col">
+            <span class="text-[24px]/[normal] font-bold text-white/90">3 month trial</span>
+            <h4 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-white mt-1 mb-3">Free</h4>
+            <p class="flex-1 text-xl/[130%] font-medium text-white mb-8">Start using the product and pay when you have fully tried it out.</p>
+            <a href="#" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full">Start free trial</a>
+          </div>
+          <div class="p-8 rounded-[40px] bg-white flex-1 flex flex-col">
+            <span class="text-[24px]/[normal] font-bold text-black/70">Per client</span>
+            <h4 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black mt-1 mb-3">£5.00 <span class="text-xl font-semibold">/month</span></h4>
+            <p class="flex-1 text-xl/[130%] font-medium text-black mb-8">You only pay for clients who are actively advised through the platform—no upfront fees or hidden costs.</p>
+            <a href="#" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full ring-[6px] ring-inset ring-brand-orange">Talk with us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="" id="about">
+      <div class="max-w-screen-xl mx-auto px-10 relative z-10">
+        <div class="py-32 flex items-stretch justify-between gap-3">
+          <div class="flex flex-col gap-5 flex-1 max-w-[472px]">
+            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black">Smarter AI starts with complete data</h3>
+            <p class="mt-10 text-2xl/[normal] text-brand-orange font-bold">Why Afternoon?</p>
+            <p class="text-xl/[130%] font-semibold text-brand-black/80">Afternoon is built on two simple ideas. AI performs best with complete, accurate data & firms need AI designed for the way advisers actually work. </p>
+            <p class="text-xl/[130%] font-semibold text-brand-black/80">We bring both together. You don't have to worry about how to use AI, or which models to use, we'll handle that for you.</p>
+
+            <div class="flex gap-1.5 mt-6 items-start">
+              <a href="#" class=" px-8 py-4 h-[60px] flex items-center justify-center font-bold text-white text-xl bg-brand-orange rounded-full">Start free trial</a>
+              <a href="#" class=" px-8 py-4 h-[60px] flex items-center justify-center font-bold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange">Talk with us</a>
+            </div>
+          </div>
+          <div class="max-w-[590px]">
+            <img lazyload src="<?= get_template_directory_uri(); ?>/images/complete-data/graphic.png" alt="" class="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative" id="faq">
+      <img lazyload src="<?= get_template_directory_uri(); ?>/images/faqs/background.png" alt="" class="w-full h-full absolute object-cover object-top" />
+      <div class="max-w-screen-xl mx-auto px-10 relative z-10">
+        <div class="py-32 flex flex-col" x-data="{ activeCategory: 'data', openFaq: 1 }">
+          <div class="flex flex-col gap-5 flex-1 mb-8 text-center items-center">
+            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black">FAQ</h3>
+            <div class="p-1 bg-brand-secondary-grey rounded-full flex gap-0.5">
+              <button @click="activeCategory = 'data'" :class="{ 'bg-brand-black text-white': activeCategory === 'data', 'hover:bg-brand-black/10': activeCategory !== 'data' }" class="rounded-full font-semibold py-2 px-4 text-base/[20px] text-brand-black">Data & security</button>
+              <button @click="activeCategory = 'ai'" :class="{ 'bg-brand-black text-white': activeCategory === 'ai', 'hover:bg-brand-black/10': activeCategory !== 'ai' }" class="rounded-full font-medium py-2 px-4 text-base/[20px] text-brand-black">How AI works</button>
+              <button @click="activeCategory = 'finance'" :class="{ 'bg-brand-black text-white': activeCategory === 'finance', 'hover:bg-brand-black/10': activeCategory !== 'finance' }" class="rounded-full font-medium py-2 px-4 text-base/[20px] text-brand-black">Finance</button>
+              <button @click="activeCategory = 'team'" :class="{ 'bg-brand-black text-white': activeCategory === 'team', 'hover:bg-brand-black/10': activeCategory !== 'team' }" class="rounded-full font-medium py-2 px-4 text-base/[20px] text-brand-black">Our team</button>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
+              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 1 ? null : 1">
+                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 1 }">
+                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
+                </svg>
+              </div>
+
+              <div x-show="openFaq === 1" x-collapse class="mt-5 text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
+                <p>Data on our platform is encrypted, both at rest and in transit, ringfenced and secure for you and your clients on AWS infrastructure.</p>
+                <p>Our policies align with industry-leading certifications such as ISO 27701 and ISO/IEC 42001, ensuring high standards of security, privacy, and ethical AI use.</p>
+                <p>We're ICO registered and comply with UK GDPR. We've appropriate insurance cover in place, proactive monitoring and a 99.9% uptime target, prioritising reliability and resilience.</p>
+              </div>
+            </div>
+            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
+              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 2 ? null : 2">
+                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 2 }">
+                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
+              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 3 ? null : 3">
+                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 3 }">
+                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
+              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 4 ? null : 4">
+                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 4 }">
+                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
+              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 5 ? null : 5">
+                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 5 }">
+                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="relative" id="team">
+
+      <div class="max-w-[972px] mx-auto px-10 relative z-10 pb-28" x-data="{ activeMember: null }" @click.outside="activeMember = null">
+        <h3 class="max-w-[860px] mx-auto mb-8 text-center text-brand-black text-[48px]/[110%] tracking-[-0.96px] font-bold">We started <span class="text-brand-orange">Afternoon</span> to build a new<br /> foundation for financial advice</h3>
+
+        <div class="flex flex-col gap-2">
+          <p class="text-xl/[130%] text-brand-black mx-auto max-w-[660px] w-full font-semibold">We were a small team who’d spent years in finance and adviser tech.</p>
+          <p class="text-xl/[130%] text-brand-black mx-auto max-w-[660px] w-full font-semibold">We saw how much time advisers lost to admin, so we rebuilt the foundations of advice — connecting systems, clearing the noise, and giving people more time to do meaningful work.</p>
+        </div>
+
+        <div class="px-12 py-4 bg-brand-orange mt-12 rounded-full flex gap-4 overflow-x-auto scrollbar-hide team-container" x-ref="teamContainer">
+          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 1 }">
+            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 1 ? null : 1; if(activeMember === 1) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const memberRect = member.getBoundingClientRect(); const containerRect = container.getBoundingClientRect(); const scrollLeft = container.scrollLeft; const memberRelativeLeft = memberRect.left - containerRect.left + scrollLeft; const scrollTo = memberRelativeLeft - (containerRect.width / 2) + (memberRect.width / 2); container.scrollTo({ left: scrollTo, behavior: 'smooth' }); }, 50); }">
+
+            </div>
+            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 1 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
+              <div class="pl-6 pr-3">
+                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
+                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
+                  <span>LinkedIn</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 2 }">
+            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 2 ? null : 2; if(activeMember === 2) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const memberRect = member.getBoundingClientRect(); const containerRect = container.getBoundingClientRect(); const scrollLeft = container.scrollLeft; const memberRelativeLeft = memberRect.left - containerRect.left + scrollLeft; const scrollTo = memberRelativeLeft - (containerRect.width / 2) + (memberRect.width / 2); container.scrollTo({ left: scrollTo, behavior: 'smooth' }); }, 50); }">
+
+            </div>
+            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 2 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
+              <div class="pl-6 pr-3">
+                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
+                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
+                  <span>LinkedIn</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 3 }">
+            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 3 ? null : 3; if(activeMember === 3) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const memberRect = member.getBoundingClientRect(); const containerRect = container.getBoundingClientRect(); const scrollLeft = container.scrollLeft; const memberRelativeLeft = memberRect.left - containerRect.left + scrollLeft; const scrollTo = memberRelativeLeft - (containerRect.width / 2) + (memberRect.width / 2); container.scrollTo({ left: scrollTo, behavior: 'smooth' }); }, 50); }">
+
+            </div>
+            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 3 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
+              <div class="pl-6 pr-3">
+                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
+                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
+                  <span>LinkedIn</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 4 }">
+            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 4 ? null : 4; if(activeMember === 4) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const memberRect = member.getBoundingClientRect(); const containerRect = container.getBoundingClientRect(); const scrollLeft = container.scrollLeft; const memberRelativeLeft = memberRect.left - containerRect.left + scrollLeft; const scrollTo = memberRelativeLeft - (containerRect.width / 2) + (memberRect.width / 2); container.scrollTo({ left: scrollTo, behavior: 'smooth' }); }, 50); }">
+
+            </div>
+            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 4 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
+              <div class="pl-6 pr-3">
+                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
+                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
+                  <span>LinkedIn</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 5 }">
+            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 5 ? null : 5; if(activeMember === 5) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const memberRect = member.getBoundingClientRect(); const containerRect = container.getBoundingClientRect(); const scrollLeft = container.scrollLeft; const memberRelativeLeft = memberRect.left - containerRect.left + scrollLeft; const scrollTo = memberRelativeLeft - (containerRect.width / 2) + (memberRect.width / 2); container.scrollTo({ left: scrollTo, behavior: 'smooth' }); }, 50); }">
+
+            </div>
+            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 5 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
+              <div class="pl-6 pr-3">
+                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
+                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
+                  <span>LinkedIn</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 6 }">
+            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 6 ? null : 6; if(activeMember === 6) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const memberRect = member.getBoundingClientRect(); const containerRect = container.getBoundingClientRect(); const scrollLeft = container.scrollLeft; const memberRelativeLeft = memberRect.left - containerRect.left + scrollLeft; const scrollTo = memberRelativeLeft - (containerRect.width / 2) + (memberRect.width / 2); container.scrollTo({ left: scrollTo, behavior: 'smooth' }); }, 50); }">
+
+            </div>
+            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 6 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
+              <div class="pl-6 pr-3">
+                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
+                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
+                  <span>LinkedIn</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mt-4 flex items-center justify-center">
+          <a href="#" class="flex gap-1">
+            <span class="px-6 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange">Read our story</span>
+            <span class="px-8 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.25 8.33333H16.25M16.25 8.33333L9.16667 1.25M16.25 8.33333L9.16667 15.4167" stroke="#F75F24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+    </section>
+    <div class="h-[52px] rounded-b-[52px] bg-brand-grey relative z-10"></div>
+
+
+    <footer class="relative overflow-hidden -mt-[52px] pt-[52px]">
+
+      <video autoplay loop muted playsinline class="w-full h-full absolute inset-0 object-cover">
+        <source src="<?= get_template_directory_uri(); ?>/images/footer/blobs.mp4" type="video/mp4">
+      </video>
+
+      <div class="relative z-10 py-32">
+        <div class="max-w-screen-xl mx-auto text-center">
+          <h4 class="text-white text-[48px]/[110%] tracking-[-0.96px] font-bold">Start your 3 month free trial</h4>
+          <p class="mt-3 text-white text-xl/[130%] font-semibold mx-auto max-w-[590px]">Afternoon automates the admin, compliance, and data work, so you can focus on giving great advice.</p>
+
+          <div class="mt-11 flex items-center justify-center gap-1.5">
+            <a href="#" class="px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full">Start free trial</a>
+            <a href="#" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-[6px] ring-inset ring-white">Talk with us</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative z-10 rounded-t-[52px] overflow-hidden">
+        <div class="flex">
+          <div class="flex-1 bg-brand-grey"></div>
+          <div class="max-w-screen-xl mx-auto">
+            <div class="text-brand-black font-semibold flex items-center justify-start leading-[125%] bg-brand-grey py-16">
+
+              <a href="#" class="mr-5" title="Visit our LinkedIn">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="32" height="32" rx="16" fill="#FF520E" />
+                  <path d="M12 15V20M12 12V12.01M16 20V15M20 20V17C20 16.4696 19.7893 15.9609 19.4142 15.5858C19.0391 15.2107 18.5304 15 18 15C17.4696 15 16.9609 15.2107 16.5858 15.5858C16.2107 15.9609 16 16.4696 16 17M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V22C24 22.5304 23.7893 23.0391 23.4142 23.4142C23.0391 23.7893 22.5304 24 22 24H10C9.46957 24 8.96086 23.7893 8.58579 23.4142C8.21071 23.0391 8 22.5304 8 22V10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+
+              <?php
+              wp_nav_menu(array(
+                'theme_location' => 'primary',
+                'menu_class' => 'flex gap-6',
+                'container' => 'nav',
+                'container_class' => '',
+                'fallback_cb' => false,
+              ));
+              ?>
+            </div>
+            <img lazyload src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="w-full h-auto" />
+          </div>
+          <div class="flex-1 bg-brand-grey"></div>
+        </div>
+
+        <div class="text-brand-black font-semibold flex items-center justify-start text-base leading-[125%] bg-brand-grey pt-16 pb-32">
+          <div class="max-w-screen-xl px-10  w-full mx-auto flex items-start justify-between">
+            <div class="flex flex-col gap-1 items-start">
+              <a href="#" class="hover:text-brand-orange">Privacy Policy</a>
+              <a href="#" class="hover:text-brand-orange">Protecting your interests</a>
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <span>Contact</span>
+              <a href="mailto:hello@afternoon.co.uk" class="hover:text-brand-orange">hello@afternoon.co.uk</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('dev-overlay');
+    let isGKeyPressed = false;
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'g' && !isGKeyPressed) {
+        isGKeyPressed = true;
+        overlay.classList.remove('hidden');
+      }
+    });
+
+    document.addEventListener('keyup', function(e) {
+      if (e.key === 'g') {
+        isGKeyPressed = false;
+        overlay.classList.add('hidden');
+      }
+    });
+
+  });
+</script>
+
+<?php get_footer(); ?>
