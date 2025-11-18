@@ -20,7 +20,7 @@ get_header();
         </div>
         <div class="mt-3 max-w-[574px] p-6 bg-white rounded-full border border-black/10 flex gap-1.5">
 
-          <a href="<?= get_field('introduction')['free_trial_button']['url'] ?>" target="<?= get_field('introduction')['free_trial_button']['target'] ?>" class="md:flex-1 px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full"><?= get_field('introduction')['free_trial_button']['title'] ?></a>
+          <a href="<?= get_field('introduction')['free_trial_button']['url'] ?>" target="<?= get_field('introduction')['free_trial_button']['target'] ?>" class="md:flex-1 px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-white hover:text-brand-orange"><?= get_field('introduction')['free_trial_button']['title'] ?></a>
 
 
           <svg class="w-[26px] h-[42px] md:hidden" width="26" height="42" viewBox="0 0 26 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,14 +37,17 @@ get_header();
           </svg>
 
 
-          <a href="<?= get_field('introduction')['talk_with_us_button']['url'] ?>" target="<?= get_field('introduction')['talk_with_us_button']['target'] ?>" class="px-4 md:px-9 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('introduction')['talk_with_us_button']['title'] ?></a>
+          <a href="<?= get_field('introduction')['talk_with_us_button']['url'] ?>" target="<?= get_field('introduction')['talk_with_us_button']['target'] ?>" class="px-4 md:px-9 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white"><?= get_field('introduction')['talk_with_us_button']['title'] ?></a>
 
 
         </div>
       </section>
 
+      <img lazyload src="<?= get_template_directory_uri(); ?>/images/introduction/background-mobile.jpg" alt="" fetchpriority="high" class="md:hidden -mx-5 w-screen max-w-none" />
+
+
       <section class="pt-24 md:pt-36 pb-10" id="features">
-        <div class="gap-5 md:gap-0 md:flex-row flex-col flex md:items-end justify-between md:px-4">
+        <div class="gap-5 md:flex-row flex-col flex md:items-end justify-between md:px-4">
           <h3 class="text-[28px]/[110%] tracking-[-0.56px] md:text-[48px]/[110%] md:tracking-[-0.96px] text-brand-black font-bold max-w-[526px]">
             <?= get_field('features')['title'] ?>
             <!-- TODO: Make this editable -->
@@ -52,15 +55,13 @@ get_header();
           </h3>
           <p class="text-xl/[125%] md:text-2xl/[130%] md:mr-14 text-brand-secondary-black font-semibold max-w-[313px]"><?= get_field('features')['subtitle'] ?></p>
         </div>
-        <div class="mt-4 md:mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center max-h-[550px]">
+        <div class="mt-4 md:mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center md:max-h-[550px]">
 
-          <video autoplay loop muted playsinline class="w-full h-auto">
+          <video autoplay loop muted playsinline class="hidden md:block w-full h-auto">
             <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
           </video>
 
-          <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/animation.jpg" alt="" class="absolute top-0 bottom-0 max-w-[430px]" />
-
-          <video autoplay loop muted playsinline class="absolute top-0 bottom-0 max-w-[430px]">
+          <video autoplay loop muted playsinline class="md:absolute top-0 bottom-0 w-full md:max-w-[430px]">
             <source src="<?= get_template_directory_uri(); ?>/images/features/next-steps-example.mp4" type="video/mp4">
           </video>
         </div>
@@ -374,32 +375,36 @@ get_header();
       </div>
 
       <div class="relative z-10 rounded-t-[52px] overflow-hidden">
+
+        <div class="text-brand-black font-semibold leading-[125%] bg-brand-grey pt-16 pb-24 md:py-16">
+          <div class="max-w-screen-xl mx-auto flex items-center justify-between md:justify-start px-5 md:px-10">
+            <a href="#" class="mr-5" title="Visit our LinkedIn">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="16" fill="#FF520E" />
+                <path d="M12 15V20M12 12V12.01M16 20V15M20 20V17C20 16.4696 19.7893 15.9609 19.4142 15.5858C19.0391 15.2107 18.5304 15 18 15C17.4696 15 16.9609 15.2107 16.5858 15.5858C16.2107 15.9609 16 16.4696 16 17M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V22C24 22.5304 23.7893 23.0391 23.4142 23.4142C23.0391 23.7893 22.5304 24 22 24H10C9.46957 24 8.96086 23.7893 8.58579 23.4142C8.21071 23.0391 8 22.5304 8 22V10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+
+            <?php
+            wp_nav_menu(array(
+              'theme_location' => 'primary',
+              'menu_class' => 'flex gap-6',
+              'container' => 'nav',
+              'container_class' => '',
+              'fallback_cb' => false,
+            ));
+            ?>
+          </div>
+        </div>
         <div class="flex flex-col">
           <div class="flex-1 bg-brand-grey"></div>
-          <div class="max-w-screen-xl mx-auto">
-            <div class="text-brand-black font-semibold flex items-center justify-between md:justify-start leading-[125%] bg-brand-grey pt-16 pb-24 md:py-16 px-4">
-
-              <a href="#" class="mr-5" title="Visit our LinkedIn">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="32" height="32" rx="16" fill="#FF520E" />
-                  <path d="M12 15V20M12 12V12.01M16 20V15M20 20V17C20 16.4696 19.7893 15.9609 19.4142 15.5858C19.0391 15.2107 18.5304 15 18 15C17.4696 15 16.9609 15.2107 16.5858 15.5858C16.2107 15.9609 16 16.4696 16 17M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V22C24 22.5304 23.7893 23.0391 23.4142 23.4142C23.0391 23.7893 22.5304 24 22 24H10C9.46957 24 8.96086 23.7893 8.58579 23.4142C8.21071 23.0391 8 22.5304 8 22V10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </a>
-
-              <?php
-              wp_nav_menu(array(
-                'theme_location' => 'primary',
-                'menu_class' => 'flex gap-6',
-                'container' => 'nav',
-                'container_class' => '',
-                'fallback_cb' => false,
-              ));
-              ?>
-            </div>
-            <div class="flex overflow-hidden">
-              <div class="w-4 flex-shrink-0 bg-brand-grey"></div>
-              <img lazyload src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="flex-1 h-auto w-[calc(100dvw-2rem)]" />
-              <div class="w-4 flex-shrink-0 bg-brand-grey"></div>
+          <div class="w-full">
+            <div class="flex">
+              <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10"></div>
+              <div class="w-full max-w-[1200px]">
+                <img lazyload src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="w-full h-auto" />
+              </div>
+              <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10"></div>
             </div>
           </div>
           <div class="flex-1 bg-brand-grey"></div>

@@ -1,4 +1,4 @@
-<div class="fixed w-full z-[100]">
+<div class="fixed w-full z-[100]" x-data="{mobileNavigationOpen:false}" x-init="window.addEventListener('resize', () => { mobileNavigationOpen = false })">
   <div class="max-w-screen-xl mx-auto px-5 md:pl-16 md:pr-10">
     <header class="relative pt-10 md:pt-5 flex items-center justify-between">
       <a href="<?= site_url() ?>" title="Go to homepage">
@@ -23,18 +23,29 @@
           </defs>
         </svg>
       </a>
-      <div class="hidden md:flex py-4 pl-4 pr-4 rounded-full bg-brand-black text-white font-semibold items-center justify-center leading-[125%]">
+
+      <div :class="{ '!flex flex-col absolute left-0 right-0 rounded-2xl top-32' : mobileNavigationOpen }" class="hidden md:flex py-4 pl-4 pr-4 rounded-full bg-brand-black text-white font-semibold items-center justify-center leading-[125%]">
         <?php
         wp_nav_menu(array(
           'theme_location' => 'primary',
-          'menu_class' => 'flex gap-6',
+          'menu_class' => 'flex flex-col text-center md:flex-row gap-6',
           'container' => 'nav',
-          'container_class' => 'px-7',
+          'container_class' => 'pt-4 pb-7 md:py-0 md:px-7',
           'fallback_cb' => false,
         ));
         ?>
         <a href="#" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black">Log in</a>
       </div>
+
+      <button x-on:click="mobileNavigationOpen = !mobileNavigationOpen" class="md:hidden w-12 h-12 rounded-2xl bg-brand-black flex items-center justify-center">
+        <svg x-show="!mobileNavigationOpen" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1H17M1 7H17M1 13H17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+
+        <svg x-show="mobileNavigationOpen" class="w-[22px] h-[22px] text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="4" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
     </header>
   </div>
 </div>
