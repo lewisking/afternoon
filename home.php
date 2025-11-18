@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * Template Name: Home
+ */
+?>
+
 <?= get_header() ?>
 
 <div class="relative">
@@ -9,12 +16,12 @@
       <section class="py-36">
         <div class="max-w-[692px] py-11 px-8 bg-white rounded-[32px] border border-black/10 flex flex-col gap-5">
           <h1 class="text-[52px]/[60px] text-brand-orange font-bold tracking-[-1.04px]">
-            The AI-first operating model <span class="text-brand-black">for financial advice firms</span>
+            <?= get_field('introduction')['heading_part_#1'] ?>&nbsp;<span class="text-brand-black"><?= get_field('introduction')['heading_part_#2'] ?></span>
           </h1>
-          <h2 class="max-w-[420px] text-brand-black text-2xl/[125%] font-semibold">Automate data collection, reporting and more with one solution.</h2>
+          <h2 class="max-w-[420px] text-brand-black text-2xl/[125%] font-semibold"><?= get_field('introduction')['subheading'] ?></h2>
         </div>
         <div class="mt-3 max-w-[574px] p-6 bg-white rounded-full border border-black/10 flex gap-1.5">
-          <a href="#" class="flex-1 px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-white text-xl bg-brand-orange rounded-full">Start free trial</a>
+          <a href="<?= get_field('introduction')['free_trial_button']['url'] ?>" target="<?= get_field('introduction')['free_trial_button']['target'] ?>" class="flex-1 px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-white text-xl bg-brand-orange rounded-full"><?= get_field('introduction')['free_trial_button']['title'] ?></a>
           <svg width="31" height="60" viewBox="0 0 31 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="3" width="25" height="54" rx="12.5" stroke="#F75F24" stroke-width="6" />
           </svg>
@@ -22,7 +29,7 @@
           <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="3" width="54" height="54" rx="27" stroke="#F75F24" stroke-width="6" />
           </svg>
-          <a href="#" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange">Talk with us</a>
+          <a href="<?= get_field('introduction')['talk_with_us_button']['url'] ?>" target="<?= get_field('introduction')['talk_with_us_button']['target'] ?>" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('introduction')['talk_with_us_button']['title'] ?></a>
 
 
         </div>
@@ -31,9 +38,11 @@
       <section class="pt-36 pb-10" id="features">
         <div class="flex items-end justify-between px-4">
           <h3 class="text-[48px]/[110%] tracking-[-0.96px] text-brand-black font-bold max-w-[526px]">
-            Make your advice firm more <span x-data="{ words: ['profitable', 'efficient', 'innovative', 'successful', 'scalable'] }" x-typewriter.1500ms.cursor="words"></span>
+            <?= get_field('features')['title'] ?>
+            <!-- TODO: Make this editable -->
+            <span x-data="{ words: ['profitable', 'efficient', 'innovative', 'successful', 'scalable'] }" x-typewriter.1500ms.cursor="words"></span>
           </h3>
-          <p class="text-2xl/[130%] mr-14 text-brand-secondary-black font-semibold max-w-[313px]">Afternoon uses AI to automate the endless admin of financial advice.</p>
+          <p class="text-2xl/[130%] mr-14 text-brand-secondary-black font-semibold max-w-[313px]"><?= get_field('features')['subtitle'] ?></p>
         </div>
         <div class="mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center max-h-[550px]">
 
@@ -48,7 +57,7 @@
           </video>
         </div>
 
-
+        <!-- TODO - repeater in WordPress -->
         <div class="grid grid-cols-3 mt-20 gap-4">
           <div class="flex flex-col gap-6">
             <div class="flex flex-col gap-1 px-3">
@@ -74,16 +83,16 @@
               <p class="text-base/[24px] font-medium text-brand-black/90">Generate reports in seconds.</p>
             </div>
             <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
-              <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/reports-cards.png" alt="Automate reports"  />
+              <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/reports-cards.png" alt="Automate reports" />
             </div>
           </div>
         </div>
 
         <div class="grid grid-cols-3 mt-20 gap-4">
           <div>
-            <h3 class="text-2xl/[130%] text-brand-black font-semibold max-w-[273px] pl-4">Find answers fast with SiestaAI</h3>
+            <h3 class="text-2xl/[130%] text-brand-black font-semibold max-w-[273px] pl-4"><?= get_field('ai_preview')['title'] ?></h3>
           </div>
-          <p class="text-base/[24px] font-medium text-brand-black flex items-center">SiestaAI analyses client data points, providing answers and reports on whatever you need to know.</p>
+          <p class="text-base/[24px] font-medium text-brand-black flex items-center"><?= get_field('ai_preview')['subtitle'] ?></p>
         </div>
 
 
@@ -103,9 +112,11 @@
       <div class="max-w-screen-xl mx-auto px-10 relative z-10">
         <div class="py-72 flex items-stretch justify-between gap-3">
           <div class="flex flex-col gap-5 flex-1 mr-20">
-            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black">Pay a flat fee per client</h3>
-            <p class="text-xl/[130%] text-black font-medium">With Afternoon, you only pay for what you need. Start for free, then pay £5 per client, per month.</p>
+            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black"><?= get_field('pricing')['title'] ?></h3>
+            <p class="text-xl/[130%] text-black font-medium"><?= get_field('pricing')['subtitle'] ?></p>
           </div>
+
+          <!-- TODO - repeater in WordPress -->
           <div class="p-8 rounded-[40px] bg-brand-orange flex-1 flex flex-col">
             <span class="text-[24px]/[normal] font-bold text-white/90">3 month trial</span>
             <h4 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-white mt-1 mb-3">Free</h4>
@@ -122,27 +133,28 @@
       </div>
     </section>
 
-    <section class="" id="about">
+    <section id="about">
       <div class="max-w-screen-xl mx-auto px-10 relative z-10">
         <div class="py-32 flex items-stretch justify-between gap-3">
           <div class="flex flex-col gap-5 flex-1 max-w-[472px]">
-            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black">Smarter AI starts with complete data</h3>
-            <p class="mt-10 text-2xl/[normal] text-brand-orange font-bold">Why Afternoon?</p>
-            <p class="text-xl/[130%] font-semibold text-brand-black/80">Afternoon is built on two simple ideas. AI performs best with complete, accurate data & firms need AI designed for the way advisers actually work. </p>
-            <p class="text-xl/[130%] font-semibold text-brand-black/80">We bring both together. You don't have to worry about how to use AI, or which models to use, we'll handle that for you.</p>
+            <h3 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black"><?= get_field('about')['title'] ?></h3>
+            <p class="mt-10 text-2xl/[normal] text-brand-orange font-bold"><?= get_field('about')['subtitle'] ?></p>
+            
+            <div class="text-xl/[130%] font-semibold text-brand-black/80 flex flex-col gap-4"><?= get_field('about')['description'] ?></div>
 
             <div class="flex gap-1.5 mt-6 items-start">
-              <a href="#" class=" px-8 py-4 h-[60px] flex items-center justify-center font-bold text-white text-xl bg-brand-orange rounded-full">Start free trial</a>
-              <a href="#" class=" px-8 py-4 h-[60px] flex items-center justify-center font-bold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange">Talk with us</a>
+              <a href="<?= get_field('about')['free_trial_button']['url'] ?>" target="<?= get_field('about')['free_trial_button']['target'] ?>" class=" px-8 py-4 h-[60px] flex items-center justify-center font-bold text-white text-xl bg-brand-orange rounded-full"><?= get_field('about')['free_trial_button']['title'] ?></a>
+              <a href="<?= get_field('about')['talk_with_us_button']['url'] ?>" target="<?= get_field('about')['talk_with_us_button']['target'] ?>" class=" px-8 py-4 h-[60px] flex items-center justify-center font-bold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('about')['talk_with_us_button']['title'] ?></a>
             </div>
           </div>
           <div class="max-w-[590px]">
-            <img lazyload src="<?= get_template_directory_uri(); ?>/images/complete-data/graphic.png" alt="" class="" />
+            <img lazyload src="<?= get_template_directory_uri(); ?>/images/complete-data/graphic.png" alt="" />
           </div>
         </div>
       </div>
     </section>
 
+    <!-- TODO: Make FAQ editable in WordPress -->
     <section class="relative" id="faq">
       <img lazyload src="<?= get_template_directory_uri(); ?>/images/faqs/background.png" alt="" class="w-full h-full absolute object-cover object-top" />
       <div class="max-w-screen-xl mx-auto px-10 relative z-10">
@@ -213,11 +225,10 @@
     <section class="relative" id="team">
 
       <div class="max-w-[972px] mx-auto px-10 relative z-10 pb-28" x-data="{ activeMember: null }" @click.outside="activeMember = null">
-        <h3 class="max-w-[860px] mx-auto mb-8 text-center text-brand-black text-[48px]/[110%] tracking-[-0.96px] font-bold">We started <span class="text-brand-orange">Afternoon</span> to build a new<br /> foundation for financial advice</h3>
+        <h3 class="max-w-[860px] mx-auto mb-8 text-center text-brand-black text-[48px]/[110%] tracking-[-0.96px] font-bold"><?=  get_field('team')['title'] ?></h3>
 
-        <div class="flex flex-col gap-2">
-          <p class="text-xl/[130%] text-brand-black mx-auto max-w-[660px] w-full font-semibold">We were a small team who’d spent years in finance and adviser tech.</p>
-          <p class="text-xl/[130%] text-brand-black mx-auto max-w-[660px] w-full font-semibold">We saw how much time advisers lost to admin, so we rebuilt the foundations of advice — connecting systems, clearing the noise, and giving people more time to do meaningful work.</p>
+        <div class="flex flex-col gap-2 text-xl/[130%] text-brand-black mx-auto max-w-[660px] w-full font-semibold">
+          <?= get_field('team')['description'] ?>
         </div>
 
         <div class="px-12 py-4 bg-brand-orange mt-12 rounded-full flex gap-4 overflow-x-auto scrollbar-hide team-container" x-ref="teamContainer">
@@ -321,8 +332,8 @@
 
 
         <div class="mt-4 flex items-center justify-center">
-          <a href="#" class="flex gap-1">
-            <span class="px-6 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange">Read our story</span>
+          <a href="<?= get_field('team')['button']['url'] ?>" target="<?= get_field('team')['button']['target'] ?>" class="flex gap-1">
+            <span class="px-6 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('team')['button']['title'] ?></span>
             <span class="px-8 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.25 8.33333H16.25M16.25 8.33333L9.16667 1.25M16.25 8.33333L9.16667 15.4167" stroke="#F75F24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -343,12 +354,12 @@
 
       <div class="relative z-10 py-32">
         <div class="max-w-screen-xl mx-auto text-center">
-          <h4 class="text-white text-[48px]/[110%] tracking-[-0.96px] font-bold">Start your 3 month free trial</h4>
-          <p class="mt-3 text-white text-xl/[130%] font-semibold mx-auto max-w-[590px]">Afternoon automates the admin, compliance, and data work, so you can focus on giving great advice.</p>
+          <h4 class="text-white text-[48px]/[110%] tracking-[-0.96px] font-bold"><?=  get_field('footer')['title'] ?></h4>
+          <p class="mt-3 text-white text-xl/[130%] font-semibold mx-auto max-w-[590px]"><?= get_field('footer')['subtitle'] ?></p>
 
           <div class="mt-11 flex items-center justify-center gap-1.5">
-            <a href="#" class="px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full">Start free trial</a>
-            <a href="#" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-[6px] ring-inset ring-white">Talk with us</a>
+            <a href="<?= get_field('footer')['free_trial_button']['url'] ?>" target="<?= get_field('footer')['free_trial_button']['target'] ?>" class="px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full"><?= get_field('footer')['free_trial_button']['title'] ?></a>
+            <a href="<?= get_field('footer')['talk_with_us_button']['url'] ?>" target="<?= get_field('footer')['talk_with_us_button']['target'] ?>" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-[6px] ring-inset ring-white"><?= get_field('footer')['talk_with_us_button']['title'] ?></a>
           </div>
         </div>
       </div>
@@ -383,9 +394,16 @@
 
         <div class="text-brand-black font-semibold flex items-center justify-start text-base leading-[125%] bg-brand-grey pt-16 pb-32">
           <div class="max-w-screen-xl px-10  w-full mx-auto flex items-start justify-between">
-            <div class="flex flex-col gap-1 items-start">
-              <a href="#" class="hover:text-brand-orange">Privacy Policy</a>
-              <a href="#" class="hover:text-brand-orange">Protecting your interests</a>
+            <div class="">
+              <?php
+              wp_nav_menu(array(
+                'theme_location' => 'secondary',
+                'menu_class' => 'flex flex-col gap-1 items-start',
+                'container' => 'nav',
+                'container_class' => '',
+                'fallback_cb' => false,
+              ));
+              ?>
             </div>
 
             <div class="flex flex-col gap-1">

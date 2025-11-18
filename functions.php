@@ -39,6 +39,7 @@ function afternoon_setup() {
     // Register navigation menus
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'afternoon'),
+        'secondary' => __('Secondary Menu', 'afternoon'),
     ));
 }
 add_action('after_setup_theme', 'afternoon_setup');
@@ -47,9 +48,7 @@ add_action('after_setup_theme', 'afternoon_setup');
  * Add hover class to menu links
  */
 function afternoon_add_menu_link_class($atts, $item, $args) {
-    if ($args->theme_location == 'primary') {
-        $atts['class'] = 'hover:text-brand-orange';
-    }
+    $atts['class'] = 'hover:text-brand-orange';
     return $atts;
 }
 add_filter('nav_menu_link_attributes', 'afternoon_add_menu_link_class', 10, 3);
