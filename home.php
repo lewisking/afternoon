@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <div class="relative">
-  <img lazyload src="<?= get_template_directory_uri(); ?>/images/introduction/background.png" alt="" fetchpriority="high" class="select-none w-full h-auto inset-0 absolute object-cover md:block hidden" />
+  <img src="<?= get_template_directory_uri(); ?>/images/introduction/background.png" alt="" fetchpriority="high" class="select-none w-full h-auto inset-0 absolute object-cover md:block hidden" />
   <?php get_template_part('template-parts/navigation') ?>
   <main class="relative md:pt-[92px]">
     <div class="max-w-screen-xl mx-auto px-5 md:px-10">
@@ -43,7 +43,9 @@ get_header();
         </div>
       </section>
 
-      <img lazyload src="<?= get_template_directory_uri(); ?>/images/introduction/background-mobile.jpg" alt="" fetchpriority="high" class="md:hidden -mx-5 w-screen max-w-none" />
+      <div class="md:hidden -mx-5 w-screen max-w-none aspect-[393/314] relative">
+        <img width="393" height="314" loading="lazy" src="<?= get_template_directory_uri(); ?>/images/introduction/background-mobile.jpg" alt="" fetchpriority="high" class="inset-0 absolute object-cover w-full h-auto" />
+      </div>
 
 
       <section class="pt-24 md:pt-36 pb-10" id="features">
@@ -74,7 +76,7 @@ get_header();
               <p class="text-base/[24px] font-medium text-brand-black/90">Advise with complete and accurate data.</p>
             </div>
             <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden px-4 py-14">
-              <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/action-cards.svg" alt="Automate data" />
+              <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/features/action-cards.svg" alt="Automate data" />
             </div>
           </div>
           <div class="flex flex-col gap-3 md:gap-6">
@@ -83,7 +85,7 @@ get_header();
               <p class="text-base/[24px] font-medium text-brand-black/90">Advise with complete and accurate data.</p>
             </div>
             <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
-              <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/meeting-cards.svg" alt="Automate meetings" />
+              <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/features/meeting-cards.svg" alt="Automate meetings" />
             </div>
           </div>
           <div class="flex flex-col gap-3 md:gap-6">
@@ -92,7 +94,7 @@ get_header();
               <p class="text-base/[24px] font-medium text-brand-black/90">Generate reports in seconds.</p>
             </div>
             <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
-              <img lazyload src="<?= get_template_directory_uri(); ?>/images/features/reports-cards.png" alt="Automate reports" />
+              <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/features/reports-cards.png" alt="Automate reports" />
             </div>
           </div>
         </div>
@@ -117,7 +119,7 @@ get_header();
     </div>
 
     <section class="relative" id="pricing">
-      <img lazyload src="<?= get_template_directory_uri(); ?>/images/pricing/background.png" alt="" class="w-full h-full absolute object-cover" />
+      <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/pricing/background.png" alt="" class="w-full h-full absolute object-cover" />
       <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
         <div class="py-12 md:py-72 flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-3">
           <div class="flex flex-col gap-4 md:gap-5 flex-1 md:mr-20">
@@ -157,7 +159,7 @@ get_header();
             </div>
           </div>
           <div class="max-w-[590px]">
-            <img lazyload src="<?= get_template_directory_uri(); ?>/images/complete-data/graphic.png" alt="" />
+            <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/complete-data/graphic.png" alt="" />
           </div>
         </div>
       </div>
@@ -165,7 +167,7 @@ get_header();
 
     <!-- TODO: Make FAQ editable in WordPress -->
     <section class="relative" id="faq">
-      <img lazyload src="<?= get_template_directory_uri(); ?>/images/faqs/background.png" alt="" class="w-full h-full absolute object-cover object-top" />
+      <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/faqs/background.png" alt="" class="w-full h-full absolute object-cover object-top" />
       <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
         <div class="py-12 md:py-32 flex flex-col" x-data="{ activeCategory: 'data', openFaq: 1 }">
           <div class="flex flex-col gap-5 flex-1 mb-8 md:text-center md:items-center">
@@ -359,7 +361,7 @@ get_header();
     <footer class="relative overflow-hidden -mt-[52px] pt-[52px]">
 
       <video autoplay loop muted playsinline class="w-full h-full absolute inset-0 object-cover">
-        <source src="<?= get_template_directory_uri(); ?>/images/footer/blobs.mp4" type="video/mp4">
+        <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
       </video>
 
       <div class="relative z-10 py-32">
@@ -402,7 +404,7 @@ get_header();
             <div class="flex">
               <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10"></div>
               <div class="w-full max-w-[1200px]">
-                <img lazyload src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="w-full h-auto" />
+                <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="w-full h-auto" />
               </div>
               <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10"></div>
             </div>

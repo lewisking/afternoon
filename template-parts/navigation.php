@@ -24,7 +24,7 @@
         </svg>
       </a>
 
-      <div :class="{ '!flex flex-col absolute left-0 right-0 rounded-2xl top-32' : mobileNavigationOpen }" class="hidden md:flex py-4 pl-4 pr-4 rounded-full bg-brand-black text-white font-semibold items-center justify-center leading-[125%]">
+      <div :class="{ '!flex flex-col absolute left-0 right-0 !rounded-2xl top-32' : mobileNavigationOpen }" class="hidden md:flex py-4 pl-4 pr-4 rounded-full bg-brand-black text-white font-semibold items-center justify-center leading-[125%]">
         <?php
         wp_nav_menu(array(
           'theme_location' => 'primary',
@@ -37,14 +37,16 @@
         <a href="https://portal.afternoon.co.uk/" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black">Log in</a>
       </div>
 
-      <button x-on:click="mobileNavigationOpen = !mobileNavigationOpen" class="md:hidden w-12 h-12 rounded-2xl bg-brand-black flex items-center justify-center">
+      <button title="Toggle mobile navigation" x-on:click="mobileNavigationOpen = !mobileNavigationOpen" class="md:hidden w-12 h-12 rounded-2xl bg-brand-black flex items-center justify-center">
         <svg x-show="!mobileNavigationOpen" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1H17M1 7H17M1 13H17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
 
-        <svg x-show="mobileNavigationOpen" class="w-[22px] h-[22px] text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="4" stroke="currentColor">
+        <template x-if="mobileNavigationOpen">
+        <svg class="w-[22px] h-[22px] text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="4" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
+        </template>
       </button>
     </header>
   </div>
