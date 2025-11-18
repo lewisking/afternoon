@@ -34,7 +34,7 @@
           'fallback_cb' => false,
         ));
         ?>
-        <a href="#" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black">Log in</a>
+        <a href="https://portal.afternoon.co.uk/" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black">Log in</a>
       </div>
 
       <button x-on:click="mobileNavigationOpen = !mobileNavigationOpen" class="md:hidden w-12 h-12 rounded-2xl bg-brand-black flex items-center justify-center">

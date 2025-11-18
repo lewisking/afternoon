@@ -130,13 +130,13 @@ get_header();
             <span class="text-[24px]/[normal] font-bold text-white/90">3 month trial</span>
             <h4 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-white mt-1 mb-3">Free</h4>
             <p class="flex-1 text-xl/[130%] font-medium text-white mb-8">Start using the product and pay when you have fully tried it out.</p>
-            <a href="#" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full">Start free trial</a>
+            <a href="#" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full hover:text-white hover:bg-brand-black">Start free trial</a>
           </div>
           <div class="p-8 rounded-[40px] bg-white flex-1 flex flex-col">
             <span class="text-[24px]/[normal] font-bold text-black/70">Per client</span>
             <h4 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black mt-1 mb-3">£5.00 <span class="text-xl font-semibold">/month</span></h4>
             <p class="flex-1 text-xl/[130%] font-medium text-black mb-8">You only pay for clients who are actively advised through the platform—no upfront fees or hidden costs.</p>
-            <a href="#" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full ring-[6px] ring-inset ring-brand-orange">Talk with us</a>
+            <a href="#" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white">Talk with us</a>
           </div>
         </div>
       </div>
@@ -152,8 +152,8 @@ get_header();
             <div class="md:text-xl/[130%] font-semibold text-brand-black/80 flex flex-col gap-4"><?= get_field('about')['description'] ?></div>
 
             <div class="flex gap-1.5 md:mt-6 items-start">
-              <a href="<?= get_field('about')['free_trial_button']['url'] ?>" target="<?= get_field('about')['free_trial_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-white text-base md:text-xl bg-brand-orange rounded-full"><?= get_field('about')['free_trial_button']['title'] ?></a>
-              <a href="<?= get_field('about')['talk_with_us_button']['url'] ?>" target="<?= get_field('about')['talk_with_us_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('about')['talk_with_us_button']['title'] ?></a>
+              <a href="<?= get_field('about')['free_trial_button']['url'] ?>" target="<?= get_field('about')['free_trial_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-white text-base md:text-xl bg-brand-orange hover:bg-brand-black hover:text-white rounded-full"><?= get_field('about')['free_trial_button']['title'] ?></a>
+              <a href="<?= get_field('about')['talk_with_us_button']['url'] ?>" target="<?= get_field('about')['talk_with_us_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white"><?= get_field('about')['talk_with_us_button']['title'] ?></a>
             </div>
           </div>
           <div class="max-w-[590px]">
@@ -342,8 +342,8 @@ get_header();
 
 
         <div class="mt-4 flex items-center justify-center">
-          <a href="<?= get_field('team')['button']['url'] ?>" target="<?= get_field('team')['button']['target'] ?>" class="flex gap-1 w-full md:w-auto">
-            <span class="w-full md:w-auto bg-brand-orange md:bg-transparent text-white px-6 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl md:text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange"><?= get_field('team')['button']['title'] ?></span>
+          <a href="<?= get_field('team')['button']['url'] ?>" target="<?= get_field('team')['button']['target'] ?>" class="flex gap-1 w-full md:w-auto group">
+            <span class="w-full md:w-auto bg-brand-orange md:bg-transparent text-white px-6 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl md:text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange group-hover:bg-brand-orange group-hover:text-white"><?= get_field('team')['button']['title'] ?></span>
             <span class="px-8 py-4 h-[60px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hidden md:flex"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.25 8.33333H16.25M16.25 8.33333L9.16667 1.25M16.25 8.33333L9.16667 15.4167" stroke="#F75F24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -368,8 +368,8 @@ get_header();
           <p class="mt-3 text-white text-base/[130%] md:text-xl/[130%] font-semibold mx-auto max-w-[590px]"><?= get_field('footer')['subtitle'] ?></p>
 
           <div class="mt-5 md:mt-11 flex items-center justify-center gap-1.5">
-            <a href="<?= get_field('footer')['free_trial_button']['url'] ?>" target="<?= get_field('footer')['free_trial_button']['target'] ?>" class="px-5 md:px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full"><?= get_field('footer')['free_trial_button']['title'] ?></a>
-            <a href="<?= get_field('footer')['talk_with_us_button']['url'] ?>" target="<?= get_field('footer')['talk_with_us_button']['target'] ?>" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-[6px] ring-inset ring-white"><?= get_field('footer')['talk_with_us_button']['title'] ?></a>
+            <a href="<?= get_field('footer')['free_trial_button']['url'] ?>" target="<?= get_field('footer')['free_trial_button']['target'] ?>" class="px-5 md:px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full hover:bg-brand-black hover:text-white"><?= get_field('footer')['free_trial_button']['title'] ?></a>
+            <a href="<?= get_field('footer')['talk_with_us_button']['url'] ?>" target="<?= get_field('footer')['talk_with_us_button']['target'] ?>" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-[6px] ring-inset ring-white hover:bg-white hover:text-brand-black"><?= get_field('footer')['talk_with_us_button']['title'] ?></a>
           </div>
         </div>
       </div>
@@ -378,7 +378,7 @@ get_header();
 
         <div class="text-brand-black font-semibold leading-[125%] bg-brand-grey pt-16 pb-24 md:py-16">
           <div class="max-w-screen-xl mx-auto flex items-center justify-between md:justify-start px-5 md:px-10">
-            <a href="#" class="mr-5" title="Visit our LinkedIn">
+            <a href="https://www.linkedin.com/company/afternoon-finance" target="_blank" class="mr-5" title="Visit our LinkedIn">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="32" height="32" rx="16" fill="#FF520E" />
                 <path d="M12 15V20M12 12V12.01M16 20V15M20 20V17C20 16.4696 19.7893 15.9609 19.4142 15.5858C19.0391 15.2107 18.5304 15 18 15C17.4696 15 16.9609 15.2107 16.5858 15.5858C16.2107 15.9609 16 16.4696 16 17M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V22C24 22.5304 23.7893 23.0391 23.4142 23.4142C23.0391 23.7893 22.5304 24 22 24H10C9.46957 24 8.96086 23.7893 8.58579 23.4142C8.21071 23.0391 8 22.5304 8 22V10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
