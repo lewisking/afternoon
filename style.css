@@ -24,7 +24,11 @@ img {
 a, button,
 .group span,
 svg path {
-  @apply transition-colors duration-200 ease-in-out;
+  @apply transition duration-200 ease-in-out;
+}
+
+a, button {
+  @apply active:scale-90;
 }
 
 @layer utilities {
