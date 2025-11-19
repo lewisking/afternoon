@@ -17,11 +17,13 @@ Text Domain: afternoon
 /* Custom styles can be added below */
 
 img {
+  -webkit-user-drag: none;
   user-drag: none;
 }
 
 a, button,
-.group span {
+.group span,
+svg path {
   @apply transition-colors duration-200 ease-in-out;
 }
 
