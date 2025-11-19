@@ -56,7 +56,7 @@ get_header();
           </h3>
           <p class="text-xl/[125%] md:text-2xl/[130%] md:mr-14 text-brand-secondary-black font-semibold max-w-[313px]"><?= get_field('features')['subtitle'] ?></p>
         </div>
-        <div class="mt-4 md:mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center md:max-h-[550px]">
+        <div class="mt-4 md:mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center md:min-h-[550px]">
 
           <video autoplay loop muted playsinline class="hidden md:block w-full h-auto">
             <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
