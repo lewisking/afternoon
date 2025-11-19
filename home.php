@@ -52,8 +52,7 @@ get_header();
         <div class="gap-5 md:flex-row flex-col flex md:items-end justify-between md:px-4">
           <h3 class="text-[28px]/[110%] tracking-[-0.56px] md:text-[48px]/[110%] md:tracking-[-0.96px] text-brand-black font-bold max-w-[526px]">
             <?= get_field('features')['title'] ?>
-            <!-- TODO: Make this editable -->
-            <span x-data="{ words: ['profitable', 'efficient', 'innovative', 'successful', 'scalable'] }" x-typewriter.1500ms.cursor="words"></span>
+            <span x-data="{ words: ['<?= implode("','", array_map(fn($option) => $option['title'], get_field('features')['options'])) ?>'] }" x-typewriter.1500ms.cursor="words"></span>
           </h3>
           <p class="text-xl/[125%] md:text-2xl/[130%] md:mr-14 text-brand-secondary-black font-semibold max-w-[313px]"><?= get_field('features')['subtitle'] ?></p>
         </div>
@@ -68,35 +67,18 @@ get_header();
           </video>
         </div>
 
-        <!-- TODO - repeater in WordPress -->
         <div class="grid md:grid-cols-3 mt-10 md:mt-20 gap-6">
-          <div class="flex flex-col gap-3 md:gap-6">
-            <div class="flex flex-col gap-1 md:px-3">
-              <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]">Automate data</h4>
-              <p class="text-base/[24px] font-medium text-brand-black/90">Advise with complete and accurate data.</p>
+          <?php foreach (get_field('features')['secondary_features'] as $feature) { ?>
+            <div class="flex flex-col gap-3 md:gap-6">
+              <div class="flex flex-col gap-1 md:px-3">
+                <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]"><?= $feature['title'] ?></h4>
+                <p class="text-base/[24px] font-medium text-brand-black/90"><?= $feature['subtitle'] ?></p>
+              </div>
+              <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden px-4 py-14">
+                <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/features/action-cards.svg" alt="<?= $feature['title'] ?>" />
+              </div>
             </div>
-            <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden px-4 py-14">
-              <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/features/action-cards.svg" alt="Automate data" />
-            </div>
-          </div>
-          <div class="flex flex-col gap-3 md:gap-6">
-            <div class="flex flex-col gap-1 md:px-3">
-              <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]">Automate meetings</h4>
-              <p class="text-base/[24px] font-medium text-brand-black/90">Advise with complete and accurate data.</p>
-            </div>
-            <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
-              <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/features/meeting-cards.svg" alt="Automate meetings" />
-            </div>
-          </div>
-          <div class="flex flex-col gap-3 md:gap-6">
-            <div class="flex flex-col gap-1 md:px-3">
-              <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]">Automate reports</h4>
-              <p class="text-base/[24px] font-medium text-brand-black/90">Generate reports in seconds.</p>
-            </div>
-            <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
-              <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/features/reports-cards.png" alt="Automate reports" />
-            </div>
-          </div>
+          <?php } ?>
         </div>
 
         <div class="grid md:grid-cols-3 mt-20 gap-2 md:gap-4">
@@ -127,19 +109,15 @@ get_header();
             <p class="text-lg/[125%] md:text-xl/[130%] text-black font-medium"><?= get_field('pricing')['subtitle'] ?></p>
           </div>
 
-          <!-- TODO - repeater in WordPress -->
-          <div class="p-8 rounded-[40px] bg-brand-orange flex-1 flex flex-col">
-            <span class="text-[24px]/[normal] font-bold text-white/90">3 month trial</span>
-            <h4 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-white mt-1 mb-3">Free</h4>
-            <p class="flex-1 text-xl/[130%] font-medium text-white mb-8">Start using the product and pay when you have fully tried it out.</p>
-            <a href="#" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full hover:text-white hover:bg-brand-black">Start free trial</a>
-          </div>
-          <div class="p-8 rounded-[40px] bg-white flex-1 flex flex-col">
-            <span class="text-[24px]/[normal] font-bold text-black/70">Per client</span>
-            <h4 class="text-[48px]/[110%] tracking-[-0.96px] font-bold text-black mt-1 mb-3">£5.00 <span class="text-xl font-semibold">/month</span></h4>
-            <p class="flex-1 text-xl/[130%] font-medium text-black mb-8">You only pay for clients who are actively advised through the platform—no upfront fees or hidden costs.</p>
-            <a href="#" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white">Talk with us</a>
-          </div>
+          <?php foreach (get_field('pricing')['type'] as $index => $type) { ?>
+            <div class="p-8 rounded-[40px] <?= $index === 1 ? 'bg-white' : 'bg-brand-orange' ?> flex-1 flex flex-col">
+              <span class="text-[24px]/[normal] font-bold <?= $index === 1 ? 'text-black/70' : 'text-white/90' ?>"><?= $type['pre-title'] ?></span>
+              <h4 class="text-[48px]/[110%] tracking-[-0.96px] font-bold <?= $index === 1 ? 'text-black' : 'text-white' ?> mt-1 mb-3"><?= $type['title'] ?><?php if($type['interval']) { ?>
+                <span class="text-xl font-semibold">/<?= $type['interval'] ?></span><?php } ?></h4>
+              <p class="flex-1 text-xl/[130%] font-medium <?= $index === 1 ? 'text-black' : 'text-white' ?> mb-8"><?= $type['description'] ?></p>
+              <a href="<?= $type['link']['url'] ?>" target="<?= $type['link']['target'] ?>" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full <?= $index === 1 ? 'ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white' : 'hover:text-white hover:bg-brand-black' ?>"><?= $type['link']['title'] ?></a>
+            </div>
+          <?php } ?>
         </div>
       </div>
     </section>
@@ -182,52 +160,31 @@ get_header();
           </div>
 
           <div class="flex flex-col gap-2">
-            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
-              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 1 ? null : 1">
-                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 1 }">
-                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
-                </svg>
-              </div>
+            <?php
+            $faqs = get_field('faq');
+            if ($faqs):
+              $index = 1;
+              foreach ($faqs as $faq):
+            ?>
+                <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]" x-show="activeCategory === '<?= esc_attr($faq['category']) ?>'">
+                  <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === <?= $index ?> ? null : <?= $index ?>">
+                    <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold"><?= esc_html($faq['title']) ?></h4>
+                    <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === <?= $index ?> }">
+                      <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
+                    </svg>
+                  </div>
 
-              <div x-show="openFaq === 1" x-collapse class="mt-5 text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
-                <p>Data on our platform is encrypted, both at rest and in transit, ringfenced and secure for you and your clients on AWS infrastructure.</p>
-                <p>Our policies align with industry-leading certifications such as ISO 27701 and ISO/IEC 42001, ensuring high standards of security, privacy, and ethical AI use.</p>
-                <p>We're ICO registered and comply with UK GDPR. We've appropriate insurance cover in place, proactive monitoring and a 99.9% uptime target, prioritising reliability and resilience.</p>
-              </div>
-            </div>
-            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
-              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 2 ? null : 2">
-                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 2 }">
-                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
-              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 3 ? null : 3">
-                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 3 }">
-                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
-              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 4 ? null : 4">
-                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 4 }">
-                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
-                </svg>
-              </div>
-            </div>
-            <div class="w-full p-8 bg-white rounded-[32px] border border-black/10 mx-auto max-w-[794px]">
-              <div class="flex items-center justify-between cursor-pointer" @click="openFaq = openFaq === 5 ? null : 5">
-                <h4 class="text-xl/[110%] tracking-[-0.4px] font-semibold">How secure is my client's data with Afternoon?</h4>
-                <svg width="20" height="20" class="flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300" :class="{ 'rotate-180': openFaq === 5 }">
-                  <path d="M10.6657 5.58626L16.9157 11.8363C17.0918 12.0124 17.1908 12.2513 17.1908 12.5003C17.1908 12.7494 17.0918 12.9883 16.9157 13.1644C16.7396 13.3405 16.5007 13.4395 16.2516 13.4395C16.0026 13.4395 15.7637 13.3405 15.5876 13.1644L10.0024 7.57767L4.41569 13.1628C4.32848 13.25 4.22495 13.3192 4.11101 13.3664C3.99707 13.4136 3.87495 13.4379 3.75163 13.4379C3.6283 13.4379 3.50618 13.4136 3.39224 13.3664C3.2783 13.3192 3.17477 13.25 3.08756 13.1628C3.00036 13.0756 2.93118 12.9721 2.88399 12.8582C2.83679 12.7442 2.8125 12.6221 2.8125 12.4988C2.8125 12.3754 2.83679 12.2533 2.88399 12.1394C2.93118 12.0254 3.00036 11.9219 3.08756 11.8347L9.33756 5.5847C9.42476 5.49741 9.52834 5.42818 9.64235 5.381C9.75636 5.33381 9.87856 5.3096 10.002 5.30974C10.1253 5.30989 10.2475 5.33439 10.3614 5.38184C10.4753 5.42929 10.5787 5.49876 10.6657 5.58626Z" fill="black" />
-                </svg>
-              </div>
-            </div>
+                  <?php if (!empty($faq['description'])): ?>
+                    <div x-show="openFaq === <?= $index ?>" x-collapse class="mt-5 text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
+                      <?= $faq['description'] ?>
+                    </div>
+                  <?php endif; ?>
+                </div>
+            <?php
+                $index++;
+              endforeach;
+            endif;
+            ?>
           </div>
 
         </div>
@@ -244,102 +201,26 @@ get_header();
         </div>
 
         <div class="px-12 py-4 bg-brand-orange mt-12 rounded-full flex gap-4 overflow-x-auto scrollbar-hide team-container" x-ref="teamContainer">
-          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 1 }">
-            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 1 ? null : 1; if(activeMember === 1) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
-
-            </div>
-            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 1 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
-              <div class="pl-6 pr-3">
-                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
-                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
-                  <span>LinkedIn</span>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </a>
+          <?php foreach (get_field('team')['team_member'] as $index => $member) { ?>
+            <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== <?= $index ?> }">
+              <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team  overflow-hidden cursor-pointer h-full" @click.stop="activeMember = activeMember === <?= $index ?> ? null : <?= $index ?>; if(activeMember === <?= $index ?>) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
+                <img src="<?= $member['image']['url'] ?>" alt="<?= $member['image']['alt'] ?>" class="w-full h-full object-cover pt-5 object-top" />
+              </div>
+              <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === <?= $index ?> ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
+                <div class="pl-6 pr-3">
+                  <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold"><?= str_replace(' ', '<br>', $member['name']) ?></h4>
+                  <?php if ($member['link']) { ?>
+                    <a href="<?= $member['link']['url'] ?>" target="<?= $member['link']['target'] ?>" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
+                      <span><?= $member['link']['title'] ?></span>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  <?php } ?>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 2 }">
-            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 2 ? null : 2; if(activeMember === 2) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
-
-            </div>
-            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 2 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
-              <div class="pl-6 pr-3">
-                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
-                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
-                  <span>LinkedIn</span>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 3 }">
-            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 3 ? null : 3; if(activeMember === 3) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
-
-            </div>
-            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 3 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
-              <div class="pl-6 pr-3">
-                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
-                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
-                  <span>LinkedIn</span>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 4 }">
-            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 4 ? null : 4; if(activeMember === 4) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
-
-            </div>
-            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 4 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
-              <div class="pl-6 pr-3">
-                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
-                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
-                  <span>LinkedIn</span>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 5 }">
-            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 5 ? null : 5; if(activeMember === 5) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
-
-            </div>
-            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 5 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
-              <div class="pl-6 pr-3">
-                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
-                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
-                  <span>LinkedIn</span>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'opacity-50': activeMember !== null && activeMember !== 6 }">
-            <div class="rounded-full bg-white/20 aspect-[120/168] w-[7.5rem] shadow-team cursor-pointer h-full" @click.stop="activeMember = activeMember === 6 ? null : 6; if(activeMember === 6) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
-
-            </div>
-            <div class="team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === 6 ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'">
-              <div class="pl-6 pr-3">
-                <h4 class="text-white text-[32px]/[110%] tracking-[-0.64px] font-bold">Francesco<br /> Vanduynslager</h4>
-                <a href="#" class="flex gap-2 items-center justify-start font-semibold text-white/70  hover:text-white text-base/[110%] tracking-[-0.32px] mt-4">
-                  <span>LinkedIn</span>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 11L11 1M11 1H2M11 1V10" stroke="white" stroke-opacity="0.77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
 
 
