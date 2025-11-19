@@ -1,7 +1,7 @@
 <div class="fixed w-full z-[100]" x-data="{mobileNavigationOpen:false}" x-init="window.addEventListener('resize', () => { mobileNavigationOpen = false })">
   <div class="max-w-screen-xl mx-auto px-5 md:pl-16 md:pr-10">
     <header class="relative pt-10 md:pt-5 flex items-center justify-between">
-      <a href="<?= site_url() ?>" title="Go to homepage">
+      <a href="<?= site_url() ?>" title="Go to homepage" class="focus:outline-none">
         <svg width="175" height="40" viewBox="0 0 175 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_505_500)">
             <rect width="40" height="40" rx="12.5" fill="#F75F24" />
@@ -37,7 +37,7 @@
           ));
           ?>
         </div>
-        <a href="https://portal.afternoon.co.uk/" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black">Log in</a>
+        <a href="https://portal.afternoon.co.uk/" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black focus:bg-white focus:text-brand-black focus:outline-none">Log in</a>
       </div>
 
       <button title="Toggle mobile navigation" x-on:click="mobileNavigationOpen = !mobileNavigationOpen" class="md:hidden w-12 h-12 rounded-2xl bg-brand-black flex items-center justify-center">

@@ -20,7 +20,7 @@ get_header();
         </div>
         <div class="mt-3 max-w-[574px] p-3 md:p-6 bg-white rounded-full border border-black/10 flex gap-1.5">
 
-          <a href="<?= get_field('introduction')['free_trial_button']['url'] ?>" target="<?= get_field('introduction')['free_trial_button']['target'] ?>" class="flex-1 px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-white hover:text-brand-orange"><?= get_field('introduction')['free_trial_button']['title'] ?></a>
+          <a href="<?= get_field('introduction')['free_trial_button']['url'] ?>" target="<?= get_field('introduction')['free_trial_button']['target'] ?>" class="flex-1 px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-white hover:text-brand-orange focus:outline-none focus:text-brand-orange focus:bg-white"><?= get_field('introduction')['free_trial_button']['title'] ?></a>
 
 
           <svg class="w-[26px] h-[42px] md:hidden" width="26" height="42" viewBox="0 0 26 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ get_header();
           </svg>
 
 
-          <a href="<?= get_field('introduction')['talk_with_us_button']['url'] ?>" target="<?= get_field('introduction')['talk_with_us_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-9 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white"><?= get_field('introduction')['talk_with_us_button']['title'] ?></a>
+          <a href="<?= get_field('introduction')['talk_with_us_button']['url'] ?>" target="<?= get_field('introduction')['talk_with_us_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-9 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:outline-none focus:bg-brand-orange focus:text-white"><?= get_field('introduction')['talk_with_us_button']['title'] ?></a>
 
 
         </div>
@@ -116,7 +116,7 @@ get_header();
                 <span class="text-xl font-semibold">/<?= $type['interval'] ?></span><?php } ?>
               </h4>
               <p class="flex-1 text-xl/[130%] font-medium <?= $index === 1 ? 'text-black' : 'text-white' ?> mb-8"><?= $type['description'] ?></p>
-              <a href="<?= $type['link']['url'] ?>" target="<?= $type['link']['target'] ?>" class="px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full <?= $index === 1 ? 'ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white' : 'hover:text-white hover:bg-brand-black' ?>"><?= $type['link']['title'] ?></a>
+              <a href="<?= $type['link']['url'] ?>" target="<?= $type['link']['target'] ?>" class="focus:outline-none px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full <?= $index === 1 ? 'ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:text-white focus:bg-brand-orange' : 'hover:text-white hover:bg-brand-black focus:text-white focus:bg-brand-black' ?>"><?= $type['link']['title'] ?></a>
             </div>
           <?php } ?>
         </div>
@@ -133,8 +133,8 @@ get_header();
             <div class="md:text-xl/[130%] font-semibold text-brand-black/80 flex flex-col gap-4"><?= get_field('about')['description'] ?></div>
 
             <div class="flex gap-1.5 md:mt-6 items-start">
-              <a href="<?= get_field('about')['free_trial_button']['url'] ?>" target="<?= get_field('about')['free_trial_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-white text-base md:text-xl bg-brand-orange hover:bg-brand-black hover:text-white rounded-full"><?= get_field('about')['free_trial_button']['title'] ?></a>
-              <a href="<?= get_field('about')['talk_with_us_button']['url'] ?>" target="<?= get_field('about')['talk_with_us_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white"><?= get_field('about')['talk_with_us_button']['title'] ?></a>
+              <a href="<?= get_field('about')['free_trial_button']['url'] ?>" target="<?= get_field('about')['free_trial_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-white text-base md:text-xl bg-brand-orange hover:bg-brand-black hover:text-white rounded-full focus:outline-none focus:text-white focus:bg-brand-black"><?= get_field('about')['free_trial_button']['title'] ?></a>
+              <a href="<?= get_field('about')['talk_with_us_button']['url'] ?>" target="<?= get_field('about')['talk_with_us_button']['target'] ?>" class="flex-1 md:flex-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-brand-orange rounded-full focus:outline-none ring-[6px] ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:text-white focus:bg-brand-orange"><?= get_field('about')['talk_with_us_button']['title'] ?></a>
             </div>
           </div>
           <div class="max-w-[590px]">
@@ -144,7 +144,6 @@ get_header();
       </div>
     </section>
 
-    <!-- TODO: Make FAQ editable in WordPress -->
     <section class="relative" id="faq">
       <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/faqs/background.png" alt="" class="w-full h-full absolute object-cover object-top" />
       <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
@@ -153,10 +152,10 @@ get_header();
             <h3 class="text-[28px]/[110%] md:text-[48px]/[110%] tracking-[-0.56px] md:tracking-[-0.96px] font-bold text-black">FAQ</h3>
 
             <div class="md:p-1 md:bg-brand-secondary-grey md:rounded-full flex gap-0.5 overflow-auto whitespace-nowrap scrollbar-hide">
-              <button @click="activeCategory = 'data'" :class="{ 'bg-brand-black text-white': activeCategory === 'data', 'hover:bg-brand-black/10': activeCategory !== 'data' }" class="rounded-full font-semibold py-2 px-4 text-base/[20px] text-brand-black">Data & security</button>
-              <button @click="activeCategory = 'ai'" :class="{ 'bg-brand-black text-white': activeCategory === 'ai', 'hover:bg-brand-black/10': activeCategory !== 'ai' }" class="rounded-full font-medium py-2 px-4 text-base/[20px] text-brand-black">How AI works</button>
-              <button @click="activeCategory = 'finance'" :class="{ 'bg-brand-black text-white': activeCategory === 'finance', 'hover:bg-brand-black/10': activeCategory !== 'finance' }" class="rounded-full font-medium py-2 px-4 text-base/[20px] text-brand-black">Finance</button>
-              <button @click="activeCategory = 'team'" :class="{ 'bg-brand-black text-white': activeCategory === 'team', 'hover:bg-brand-black/10': activeCategory !== 'team' }" class="rounded-full font-medium py-2 px-4 text-base/[20px] text-brand-black">Our team</button>
+              <button @click="activeCategory = 'data'" :class="{ 'bg-brand-black text-white': activeCategory === 'data', 'hover:bg-brand-black/10 focus:bg-brand-black/10': activeCategory !== 'data' }" class="rounded-full  focus:outline-none font-semibold py-2 px-4 text-base/[20px] text-brand-black">Data & security</button>
+              <button @click="activeCategory = 'ai'" :class="{ 'bg-brand-black text-white': activeCategory === 'ai', 'hover:bg-brand-black/10 focus:bg-brand-black/10': activeCategory !== 'ai' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">How AI works</button>
+              <button @click="activeCategory = 'finance'" :class="{ 'bg-brand-black text-white': activeCategory === 'finance', 'hover:bg-brand-black/10 focus:bg-brand-black/10': activeCategory !== 'finance' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">Finance</button>
+              <button @click="activeCategory = 'team'" :class="{ 'bg-brand-black text-white': activeCategory === 'team', 'hover:bg-brand-black/10 focus:bg-brand-black/10': activeCategory !== 'team' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">Our team</button>
             </div>
           </div>
 
@@ -204,10 +203,10 @@ get_header();
         </div>
 
         <div class="relative">
-          <div class="md:px-12 md:py-4 pb-[150px] md:bg-brand-orange mt-12 md:rounded-full flex gap-4 overflow-x-auto scrollbar-hide team-container" x-ref="teamContainer">
+          <div class="md:px-12 md:py-4 pb-[150px] md:bg-brand-orange mt-12 md:rounded-full flex gap-4 overflow-x-auto scrollbar-hide team-container snap-x snap-mandatory md:snap-none" x-ref="teamContainer">
             <?php foreach (get_field('team')['team_member'] as $index => $member) { ?>
-              <div class="relative bg-brand-orange rounded-full p-4 md:p-0 md:rounded-none md:bg-transparent w-[calc(100dvw-2.5rem)] md:w-auto team-member flex items-center flex-shrink-0 min-w-fit" :class="{ 'md:opacity-50': activeMember !== null && activeMember !== <?= $index ?> }">
-                <div class="rounded-full bg-white/20 aspect-[120/168] w-full md:w-[7.5rem] shadow-team  overflow-hidden cursor-pointer h-full" @click.stop="activeMember = activeMember === <?= $index ?> ? null : <?= $index ?>; if(activeMember === <?= $index ?>) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
+              <div class="relative bg-brand-orange rounded-full p-4 md:p-0 md:rounded-none md:bg-transparent w-[calc(100dvw-2.5rem)] md:w-auto team-member flex items-center flex-shrink-0 min-w-fit snap-center md:snap-align-none" :class="{ 'md:opacity-50': activeMember !== null && activeMember !== <?= $index ?> }">
+                <div class="rounded-full  focus:outline-none bg-white/20 aspect-[120/168] w-full md:w-[7.5rem] shadow-team  overflow-hidden cursor-pointer h-full" @click.stop="activeMember = activeMember === <?= $index ?> ? null : <?= $index ?>; if(activeMember === <?= $index ?>) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
                   <img src="<?= $member['image']['url'] ?>" alt="<?= $member['image']['alt'] ?>" class="w-full h-full object-cover pt-5 object-top" />
                 </div>
                 <div class="md:h-full flex items-center justify-center flex-col absolute md:static left-0 bottom-[-130px] opacity-100 max-w-none team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === <?= $index ?> ? 'md:max-w-xs md:opacity-100' : 'md:max-w-0 md:opacity-0'">
@@ -228,11 +227,11 @@ get_header();
           </div>
 
           <div class="absolute bottom-[40px] right-0 md:hidden flex gap-2">
-            <button @click="const members = $refs.teamContainer.querySelectorAll('.team-member'); const container = $refs.teamContainer; const containerLeft = container.scrollLeft; const targetMember = Array.from(members).reverse().find(member => member.offsetLeft < containerLeft - 10); if(targetMember) { container.scrollTo({ left: targetMember.offsetLeft, behavior: 'smooth' }); }" class="bg-white rotate-180 px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange flex"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button title="Previous team member" @click="const members = $refs.teamContainer.querySelectorAll('.team-member'); const container = $refs.teamContainer; const containerLeft = container.scrollLeft; const targetMember = Array.from(members).reverse().find(member => member.offsetLeft < containerLeft - 10); if(targetMember) { container.scrollTo({ left: targetMember.offsetLeft, behavior: 'smooth' }); }" class="bg-white rotate-180 px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange flex"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.25 8.33333H16.25M16.25 8.33333L9.16667 1.25M16.25 8.33333L9.16667 15.4167" stroke="#F75F24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
             </button>
-            <button @click="const members = $refs.teamContainer.querySelectorAll('.team-member'); const container = $refs.teamContainer; const containerLeft = container.scrollLeft; const containerWidth = container.offsetWidth; const targetMember = Array.from(members).find(member => member.offsetLeft > containerLeft + 10); if(targetMember) { container.scrollTo({ left: targetMember.offsetLeft, behavior: 'smooth' }); }" class="bg-white px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange flex"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button title="Next team member" @click="const members = $refs.teamContainer.querySelectorAll('.team-member'); const container = $refs.teamContainer; const containerLeft = container.scrollLeft; const containerWidth = container.offsetWidth; const targetMember = Array.from(members).find(member => member.offsetLeft > containerLeft + 10); if(targetMember) { container.scrollTo({ left: targetMember.offsetLeft, behavior: 'smooth' }); }" class="bg-white px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange flex"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.25 8.33333H16.25M16.25 8.33333L9.16667 1.25M16.25 8.33333L9.16667 15.4167" stroke="#F75F24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
             </button>
@@ -241,8 +240,8 @@ get_header();
 
 
         <div class="mt-4 flex items-center justify-center">
-          <a href="<?= get_field('team')['button']['url'] ?>" target="<?= get_field('team')['button']['target'] ?>" class="flex gap-1 w-full md:w-auto group">
-            <span class="w-full md:w-auto bg-brand-orange md:bg-transparent text-white px-6 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl md:text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange group-hover:bg-brand-orange group-hover:text-white"><?= get_field('team')['button']['title'] ?></span>
+          <a href="<?= get_field('team')['button']['url'] ?>" target="<?= get_field('team')['button']['target'] ?>" class="flex gap-1 w-full md:w-auto group focus:outline-none">
+            <span class="w-full md:w-auto bg-brand-orange md:bg-transparent text-white px-6 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl md:text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange group-hover:bg-brand-orange group-hover:text-white group-focus:bg-brand-orange group-focus:text-white"><?= get_field('team')['button']['title'] ?></span>
             <span class="px-8 py-4 h-[60px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hidden md:flex"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.25 8.33333H16.25M16.25 8.33333L9.16667 1.25M16.25 8.33333L9.16667 15.4167" stroke="#F75F24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -267,8 +266,8 @@ get_header();
           <p class="mt-3 text-white text-base/[130%] md:text-xl/[130%] font-semibold mx-auto max-w-[590px]"><?= get_field('footer')['subtitle'] ?></p>
 
           <div class="mt-5 md:mt-11 flex items-center justify-center gap-1.5">
-            <a href="<?= get_field('footer')['free_trial_button']['url'] ?>" target="<?= get_field('footer')['free_trial_button']['target'] ?>" class="px-5 md:px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full hover:bg-brand-black hover:text-white"><?= get_field('footer')['free_trial_button']['title'] ?></a>
-            <a href="<?= get_field('footer')['talk_with_us_button']['url'] ?>" target="<?= get_field('footer')['talk_with_us_button']['target'] ?>" class="px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-[6px] ring-inset ring-white hover:bg-white hover:text-brand-black"><?= get_field('footer')['talk_with_us_button']['title'] ?></a>
+            <a href="<?= get_field('footer')['free_trial_button']['url'] ?>" target="<?= get_field('footer')['free_trial_button']['target'] ?>" class="focus:outline-none px-5 md:px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full hover:bg-brand-black hover:text-white focus:bg-brand-black focus:text-white"><?= get_field('footer')['free_trial_button']['title'] ?></a>
+            <a href="<?= get_field('footer')['talk_with_us_button']['url'] ?>" target="<?= get_field('footer')['talk_with_us_button']['target'] ?>" class="focus:outline-none px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-[6px] ring-inset ring-white hover:bg-white hover:text-brand-black focus:bg-white focus:text-brand-black"><?= get_field('footer')['talk_with_us_button']['title'] ?></a>
           </div>
         </div>
       </div>
@@ -297,7 +296,7 @@ get_header();
                 <div class="bg-brand-grey w-px h-full absolute -right-px md:hidden"></div>
               </div>
               <div class="w-full max-w-[1200px]">
-                <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="w-full h-auto" />
+                <img src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="w-full h-auto" />
               </div>
               <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10 relative">
                 <div class="bg-brand-grey w-px h-full absolute -left-px md:hidden"></div>
@@ -322,10 +321,10 @@ get_header();
               ?>
             </div>
 
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col gap-1 items-start">
               <span>Contact</span>
-              <a href="mailto:hello@afternoon.co.uk" class="text-brand-orange md:text-brand-black hover:text-brand-orange">hello@afternoon.co.uk</a>
-              <a href="https://www.linkedin.com/company/afternoon-finance" target="_blank" class="mt-2" title="Visit our LinkedIn">
+              <a href="mailto:hello@afternoon.co.uk" class="text-brand-orange md:text-brand-black hover:text-brand-orange focus:outline-none focus:text-brand-orange">hello@afternoon.co.uk</a>
+              <a href="https://www.linkedin.com/company/afternoon-finance" target="_blank" class="mt-2 focus:outline-none" title="Visit our LinkedIn">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="32" height="32" rx="16" fill="#FF520E" />
                   <path d="M12 15V20M12 12V12.01M16 20V15M20 20V17C20 16.4696 19.7893 15.9609 19.4142 15.5858C19.0391 15.2107 18.5304 15 18 15C17.4696 15 16.9609 15.2107 16.5858 15.5858C16.2107 15.9609 16 16.4696 16 17M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V22C24 22.5304 23.7893 23.0391 23.4142 23.4142C23.0391 23.7893 22.5304 24 22 24H10C9.46957 24 8.96086 23.7893 8.58579 23.4142C8.21071 23.0391 8 22.5304 8 22V10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
