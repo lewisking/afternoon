@@ -25,15 +25,18 @@
       </a>
 
       <div :class="{ '!flex flex-col absolute left-0 right-0 !rounded-2xl top-32' : mobileNavigationOpen }" class="hidden md:flex py-4 pl-4 pr-4 rounded-full bg-brand-black text-white font-semibold items-center justify-center leading-[125%]">
-        <?php
-        wp_nav_menu(array(
-          'theme_location' => 'primary',
-          'menu_class' => 'flex flex-col text-center md:flex-row gap-6',
-          'container' => 'nav',
-          'container_class' => 'pt-4 pb-7 md:py-0 md:px-7',
-          'fallback_cb' => false,
-        ));
-        ?>
+
+        <div x-on:click="mobileNavigationOpen = false">
+          <?php
+          wp_nav_menu(array(
+            'theme_location' => 'primary',
+            'menu_class' => 'flex flex-col text-center md:flex-row gap-6',
+            'container' => 'nav',
+            'container_class' => 'pt-4 pb-7 md:py-0 md:px-7',
+            'fallback_cb' => false,
+          ));
+          ?>
+        </div>
         <a href="https://portal.afternoon.co.uk/" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black">Log in</a>
       </div>
 
@@ -43,9 +46,9 @@
         </svg>
 
         <template x-if="mobileNavigationOpen">
-        <svg class="w-[22px] h-[22px] text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="4" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-        </svg>
+          <svg class="w-[22px] h-[22px] text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="4" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
         </template>
       </button>
     </header>
