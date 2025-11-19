@@ -58,7 +58,7 @@ get_header();
         </div>
         <div class="mt-4 md:mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center md:min-h-[550px]">
 
-          <video autoplay loop muted playsinline class="hidden md:block w-full h-auto blur-xl scale-150">
+          <video autoplay loop muted playsinline class="hidden md:block w-full h-auto blur-xl scale-150 opacity-50">
             <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
           </video>
 
@@ -256,7 +256,7 @@ get_header();
 
     <footer class="relative overflow-hidden -mt-[52px] pt-[52px]">
 
-      <video autoplay loop muted playsinline class="w-full h-full absolute inset-0 object-cover blur-xl scale-150">
+      <video autoplay loop muted playsinline class="w-full h-full absolute inset-0 object-cover blur-xl scale-150 opacity-50">
         <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
       </video>
 
@@ -323,7 +323,7 @@ get_header();
 
             <div class="flex flex-col gap-1 items-start">
               <span>Contact</span>
-              <a href="mailto:hello@afternoon.co.uk" class="text-brand-orange md:text-brand-black hover:text-brand-orange focus:outline-none focus:text-brand-orange">hello@afternoon.co.uk</a>
+              <a href="mailto:hello@afternoon.co.uk" class="text-brand-orange md:text-brand-black hover:text-brand-orange focus:outline-none focus:text-brand-orange focus:scale-100">hello@afternoon.co.uk</a>
               <a href="https://www.linkedin.com/company/afternoon-finance" target="_blank" class="mt-2 focus:outline-none" title="Visit our LinkedIn">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="32" height="32" rx="16" fill="#FF520E" />
