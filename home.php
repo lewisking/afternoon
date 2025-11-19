@@ -12,13 +12,13 @@ get_header();
   <main class="relative md:pt-[92px]">
     <div class="max-w-screen-xl mx-auto px-5 md:px-10">
       <section class="pt-32 md:py-36">
-        <div class="max-w-[692px] p-8 md:py-11 md:px-8 bg-white rounded-[32px] border border-black/10 flex flex-col gap-5">
+        <div class="max-w-[692px] p-6 md:py-11 md:px-8 bg-white rounded-[32px] border border-black/10 flex flex-col gap-5">
           <h1 class="text-[32px]/[38px] md:text-[52px]/[60px] text-brand-orange font-bold tracking-[-1.04px]">
             <?= get_field('introduction')['heading_part_#1'] ?>&nbsp;<span class="text-brand-black"><?= get_field('introduction')['heading_part_#2'] ?></span>
           </h1>
           <h2 class="max-w-[420px] text-brand-black text-xl/[125%] md:text-2xl/[125%] font-semibold"><?= get_field('introduction')['subheading'] ?></h2>
         </div>
-        <div class="mt-3 max-w-[574px] p-6 bg-white rounded-full border border-black/10 flex gap-1.5">
+        <div class="mt-3 max-w-[574px] p-3 md:p-6 bg-white rounded-full border border-black/10 flex gap-1.5">
 
           <a href="<?= get_field('introduction')['free_trial_button']['url'] ?>" target="<?= get_field('introduction')['free_trial_button']['target'] ?>" class="flex-1 px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full ring-[6px] ring-inset ring-brand-orange hover:bg-white hover:text-brand-orange"><?= get_field('introduction')['free_trial_button']['title'] ?></a>
 
@@ -74,7 +74,7 @@ get_header();
                 <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]"><?= $feature['title'] ?></h4>
                 <p class="text-base/[24px] font-medium text-brand-black/90"><?= $feature['subtitle'] ?></p>
               </div>
-              <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden <?=  $index != 1 ? 'px-4' : '' ?> py-14">
+              <div class="rounded-[32px] bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden <?= $index != 1 ? 'px-4' : '' ?> py-14">
                 <img loading="lazy" src="<?= $feature['image']['url'] ?>" alt="<?= $feature['title'] ?>" />
               </div>
             </div>
@@ -175,15 +175,13 @@ get_header();
                     </svg>
                   </div>
 
-                  <?php if (!empty($faq['description'])): ?>
-                    <div x-show="openFaq === <?= $index ?>" x-collapse class="mt-5 text-lg/[135%] md:text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
-                      <?php if ($faq['description']) { ?>
-                        <?= $faq['description'] ?>
-                      <?php } else { ?>
-                        <p>No content yet</p>
-                      <?php } ?>
-                    </div>
-                  <?php endif; ?>
+                  <div x-show="openFaq === <?= $index ?>" x-collapse class="mt-5 text-lg/[135%] md:text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
+                    <?php if ($faq['description']) { ?>
+                      <?= $faq['description'] ?>
+                    <?php } else { ?>
+                      <p>No content yet</p>
+                    <?php } ?>
+                  </div>
                 </div>
             <?php
                 $index++;
@@ -279,7 +277,7 @@ get_header();
 
         <div class="text-brand-black font-semibold leading-[125%] bg-brand-grey pt-16 pb-24 md:py-16">
           <div class="max-w-screen-xl mx-auto flex items-center justify-between md:justify-start px-5 md:px-10">
-            
+
             <?php
             wp_nav_menu(array(
               'theme_location' => 'primary',
@@ -295,11 +293,16 @@ get_header();
           <div class="flex-1 bg-brand-grey"></div>
           <div class="w-full">
             <div class="flex">
-              <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10"></div>
+              <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10 relative">
+                <div class="bg-brand-grey w-px h-full absolute -right-px md:hidden"></div>
+              </div>
               <div class="w-full max-w-[1200px]">
                 <img loading="lazy" src="<?= get_template_directory_uri(); ?>/images/footer/subtrack.svg" alt="" class="w-full h-auto" />
               </div>
-              <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10"></div>
+              <div class="flex-1 bg-brand-grey min-w-5 md:min-w-10 relative">
+                <div class="bg-brand-grey w-px h-full absolute -left-px md:hidden"></div>
+
+              </div>
             </div>
           </div>
           <div class="flex-1 bg-brand-grey"></div>
@@ -323,11 +326,11 @@ get_header();
               <span>Contact</span>
               <a href="mailto:hello@afternoon.co.uk" class="text-brand-orange md:text-brand-black hover:text-brand-orange">hello@afternoon.co.uk</a>
               <a href="https://www.linkedin.com/company/afternoon-finance" target="_blank" class="mt-2" title="Visit our LinkedIn">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="16" fill="#FF520E" />
-                <path d="M12 15V20M12 12V12.01M16 20V15M20 20V17C20 16.4696 19.7893 15.9609 19.4142 15.5858C19.0391 15.2107 18.5304 15 18 15C17.4696 15 16.9609 15.2107 16.5858 15.5858C16.2107 15.9609 16 16.4696 16 17M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V22C24 22.5304 23.7893 23.0391 23.4142 23.4142C23.0391 23.7893 22.5304 24 22 24H10C9.46957 24 8.96086 23.7893 8.58579 23.4142C8.21071 23.0391 8 22.5304 8 22V10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </a>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="32" height="32" rx="16" fill="#FF520E" />
+                  <path d="M12 15V20M12 12V12.01M16 20V15M20 20V17C20 16.4696 19.7893 15.9609 19.4142 15.5858C19.0391 15.2107 18.5304 15 18 15C17.4696 15 16.9609 15.2107 16.5858 15.5858C16.2107 15.9609 16 16.4696 16 17M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V22C24 22.5304 23.7893 23.0391 23.4142 23.4142C23.0391 23.7893 22.5304 24 22 24H10C9.46957 24 8.96086 23.7893 8.58579 23.4142C8.21071 23.0391 8 22.5304 8 22V10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
 
             </div>
           </div>

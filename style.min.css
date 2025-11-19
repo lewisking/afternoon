@@ -1001,6 +1001,15 @@ video {
 .top-32 {
   top: 8rem;
 }
+.right-px {
+  right: 1px;
+}
+.-right-px {
+  right: -1px;
+}
+.-left-px {
+  left: -1px;
+}
 .z-10 {
   z-index: 10;
 }
@@ -1125,6 +1134,9 @@ video {
 }
 .w-screen {
   width: 100vw;
+}
+.w-px {
+  width: 1px;
 }
 .min-w-5 {
   min-width: 1.25rem;
@@ -1328,6 +1340,10 @@ video {
 .bg-white\/20 {
   background-color: rgb(255 255 255 / 0.2);
 }
+.bg-\[red\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 0 0 / var(--tw-bg-opacity, 1));
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1335,6 +1351,9 @@ video {
 .object-top {
   -o-object-position: top;
      object-position: top;
+}
+.p-3 {
+  padding: 0.75rem;
 }
 .p-4 {
   padding: 1rem;
@@ -1901,6 +1920,10 @@ a, button,
 
   .md\:p-1 {
     padding: 0.25rem;
+  }
+
+  .md\:p-6 {
+    padding: 1.5rem;
   }
 
   .md\:p-8 {
