@@ -58,7 +58,7 @@ get_header();
         </div>
         <div class="mt-4 md:mt-10 rounded-[32px] bg-brand-orange overflow-hidden relative flex items-center justify-center md:min-h-[550px]">
 
-          <video autoplay loop muted playsinline class="hidden md:block w-full h-auto">
+          <video autoplay loop muted playsinline class="hidden md:block w-full h-auto blur-xl scale-150">
             <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
           </video>
 
@@ -256,7 +256,7 @@ get_header();
 
     <footer class="relative overflow-hidden -mt-[52px] pt-[52px]">
 
-      <video autoplay loop muted playsinline class="w-full h-full absolute inset-0 object-cover">
+      <video autoplay loop muted playsinline class="w-full h-full absolute inset-0 object-cover blur-xl scale-150">
         <source src="<?= get_template_directory_uri(); ?>/images/features/blobs.mp4" type="video/mp4">
       </video>
 
