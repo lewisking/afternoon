@@ -1,5 +1,5 @@
 <div class="fixed w-full z-[100]" x-data="{mobileNavigationOpen:false}" x-init="window.addEventListener('resize', () => { mobileNavigationOpen = false })">
-  <div class="max-w-screen-xl mx-auto px-5 md:px-8 lg:pl-16 lg:pr-10">
+  <div class="max-w-screen-xl mx-auto px-5 md:px-8 <?php echo is_front_page() ? 'lg:pl-16 lg:pr-10' : 'lg:px-10'; ?>">
     <header class="relative pt-10 md:pt-5 flex items-center justify-between">
       <a href="<?= esc_url(site_url()); ?>" title="Go to homepage" class="focus:outline-none group">
         
