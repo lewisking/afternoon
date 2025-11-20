@@ -56,10 +56,16 @@ function afternoon_setup() {
 add_action('after_setup_theme', 'afternoon_setup');
 
 /**
- * Add hover class to menu links
+ * Add hover class to menu links and prepend home URL to hash links
  */
 function afternoon_add_menu_link_class($atts, $item, $args) {
     $atts['class'] = 'hover:text-brand-orange focus:outline-none focus:text-brand-orange';
+
+    // Prepend home URL to hash links
+    if (isset($atts['href']) && strpos($atts['href'], '#') === 0) {
+        $atts['href'] = home_url('/') . $atts['href'];
+    }
+
     return $atts;
 }
 add_filter('nav_menu_link_attributes', 'afternoon_add_menu_link_class', 10, 3);
