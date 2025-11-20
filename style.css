@@ -31,6 +31,11 @@ a, button {
   @apply active:scale-90;
 }
 
+/* FAQ description links */
+[x-show^="openFaq"] p a {
+  @apply underline;
+}
+
 @layer utilities {
   .scrollbar-hide {
     scrollbar-width: none;     -ms-overflow-style: none;   }

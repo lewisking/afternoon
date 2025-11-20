@@ -1,7 +1,7 @@
 <div class="fixed w-full z-[100]" x-data="{mobileNavigationOpen:false}" x-init="window.addEventListener('resize', () => { mobileNavigationOpen = false })">
-  <div class="max-w-screen-xl mx-auto px-5 md:pl-16 md:pr-10">
+  <div class="max-w-screen-xl mx-auto px-5 md:px-8 lg:pl-16 lg:pr-10">
     <header class="relative pt-10 md:pt-5 flex items-center justify-between">
-      <a href="<?= site_url() ?>" title="Go to homepage" class="focus:outline-none group">
+      <a href="<?= esc_url(site_url()); ?>" title="Go to homepage" class="focus:outline-none group">
         
         <svg width="175" height="40" viewBox="0 0 175 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_1_2)">
