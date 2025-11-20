@@ -22,6 +22,17 @@ function afternoon_enqueue_assets() {
 add_action('wp_enqueue_scripts', 'afternoon_enqueue_assets');
 
 /**
+ * Remove WordPress block library CSS
+ */
+function afternoon_remove_block_css() {
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('wc-blocks-style');
+    wp_dequeue_style('global-styles');
+}
+add_action('wp_enqueue_scripts', 'afternoon_remove_block_css', 100);
+
+/**
  * Theme setup
  */
 function afternoon_setup() {
