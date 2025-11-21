@@ -8,18 +8,15 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Enqueue styles and scripts
+ * Inline critical CSS
  */
-function afternoon_enqueue_assets() {
-    // Enqueue the compiled Tailwind CSS
-    wp_enqueue_style(
-        'afternoon-styles',
-        get_template_directory_uri() . '/style.min.css',
-        array(),
-        filemtime(get_template_directory() . '/style.min.css')
-    );
+function afternoon_inline_styles() {
+    $css_file = get_template_directory() . '/style.min.css';
+    if (file_exists($css_file)) {
+        echo '<style>' . file_get_contents($css_file) . '</style>';
+    }
 }
-add_action('wp_enqueue_scripts', 'afternoon_enqueue_assets');
+add_action('wp_head', 'afternoon_inline_styles');
 
 /**
  * Remove WordPress block library CSS
