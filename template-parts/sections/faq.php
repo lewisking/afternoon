@@ -7,7 +7,7 @@ $faqs = afternoon_get_acf_field('faq', []);
 ?>
 
 <section class="relative" id="faq">
-  <img loading="lazy" src="<?= esc_url(afternoon_image_uri('faqs/background.png')); ?>" alt="" class="w-full h-full absolute object-cover object-top" />
+  <img loading="lazy" src="<?= esc_url(afternoon_image_uri('faqs/background.jpg')); ?>" alt="" class="w-full h-full absolute object-cover object-top" />
   <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
     <div class="py-12 md:py-32 flex flex-col" x-data="{ activeCategory: 'data', openFaq: 1 }">
       <div class="flex flex-col gap-5 flex-1 mb-8 md:text-center md:items-center">

@@ -10,7 +10,7 @@ $pricing_types = isset($pricing['type']) && is_array($pricing['type']) ? $pricin
 ?>
 
 <section class="relative" id="pricing">
-  <img loading="lazy" src="<?= esc_url(afternoon_image_uri('pricing/background.png')); ?>" alt="" class="w-full h-full absolute object-cover" />
+  <img loading="lazy" src="<?= esc_url(afternoon_image_uri('pricing/background.jpg')); ?>" alt="" class="w-full h-full absolute object-cover" />
   <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
     <div class="py-12 md:py-72 flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-3">
       <div class="flex flex-col gap-4 md:gap-5 md:w-1/3 md:mr-20">

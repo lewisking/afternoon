@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <div class="relative">
-  <img src="<?= esc_url(afternoon_image_uri('introduction/background.png')); ?>" alt="" fetchpriority="high" class="select-none w-full h-auto inset-0 absolute object-cover md:block hidden" />
+  <img src="<?= esc_url(afternoon_image_uri('introduction/background.jpg')); ?>" alt="" fetchpriority="high" class="select-none w-full h-auto inset-0 absolute object-cover md:block hidden" />
   <?php get_template_part('template-parts/navigation') ?>
   <main class="relative md:pt-[92px]">
     <div class="max-w-screen-xl mx-auto px-5 md:px-8 lg:px-10">
