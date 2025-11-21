@@ -30,18 +30,20 @@ $faqs = afternoon_get_acf_field('faq', []);
             $faq_title = isset($faq['title']) ? esc_html($faq['title']) : '';
             $faq_description = isset($faq['description']) ? wp_kses_post($faq['description']) : '';
         ?>
-            <div class="w-full p-6 md:p-8 bg-white rounded-32 border border-black/10 mx-auto max-w-[794px]" x-show="activeCategory === '<?= $faq_category; ?>'">
-              <div class="flex items-center justify-between cursor-pointer gap-4" @click="openFaq = openFaq === <?= $index; ?> ? null : <?= $index; ?>">
+            <div class="w-full bg-white rounded-32 border border-black/10 mx-auto max-w-[794px]" x-show="activeCategory === '<?= $faq_category; ?>'">
+              <div class="p-6 md:p-8 flex items-center justify-between cursor-pointer gap-4" @click="openFaq = openFaq === <?= $index; ?> ? null : <?= $index; ?>">
                 <h4 class="text-lg/[110%] md:text-xl/[110%] tracking-tighter-md font-semibold"><?= $faq_title; ?></h4>
                 <?php afternoon_svg('chevron-down', 'flex-shrink-0 transition-transform duration-300', ['alpine_class' => "{ 'rotate-180': openFaq === {$index} }"]); ?>
               </div>
 
-              <div x-show="openFaq === <?= $index; ?>" x-collapse class="mt-5 text-lg/[135%] md:text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
-                <?php if ($faq_description) { ?>
-                  <?= $faq_description; ?>
-                <?php } else { ?>
-                  <p>No content yet</p>
-                <?php } ?>
+              <div x-show="openFaq === <?= $index; ?>" x-collapse.duration.500ms>
+                <div class="p-6 md:p-8 pt-0 md:pt-0 text-lg/[135%] md:text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
+                  <?php if ($faq_description) { ?>
+                    <?= $faq_description; ?>
+                  <?php } else { ?>
+                    <p>No content yet</p>
+                  <?php } ?>
+                </div>
               </div>
             </div>
         <?php
