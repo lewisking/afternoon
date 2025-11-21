@@ -20,8 +20,8 @@ $footer_talk_button = isset($footer['talk_with_us_button']) ? $footer['talk_with
         <p class="mt-3 text-white text-base/[130%] md:text-xl/[130%] font-semibold mx-auto max-w-[590px]"><?= $footer_subtitle; ?></p>
 
         <div class="mt-5 md:mt-11 flex items-center justify-center gap-1.5">
-          <?= afternoon_render_button($footer_free_trial, 'footer-primary'); ?>
-          <?= afternoon_render_button($footer_talk_button, 'footer-secondary'); ?>
+          <?= afternoon_render_button($footer_free_trial, 'about-primary'); ?>
+          <?= afternoon_render_button($footer_talk_button, 'about-secondary'); ?>
         </div>
       </div>
     </div>

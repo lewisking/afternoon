@@ -74,20 +74,17 @@ add_filter('nav_menu_link_attributes', 'afternoon_add_menu_link_class', 10, 3);
  * Button Class Helpers
  */
 function afternoon_button_classes() {
+    // Base classes shared by most buttons
+    $base = 'px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold md:text-xl rounded-full focus:outline-none';
+
     return [
-        'primary' => 'px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full ring-1 ring-inset ring-brand-orange hover:bg-brand-orange-hover focus:outline-none focus:bg-brand-orange-active',
+        'primary' => 'px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-white bg-brand-orange rounded-full ring-1 ring-inset ring-brand-orange hover:bg-brand-orange-hover focus:outline-none focus:bg-brand-orange-active',
         'secondary' => 'px-4 md:px-9 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:outline-none focus:bg-brand-orange-active focus:ring-brand-orange-active focus:text-white',
-        
-        'pricing-primary' => 'focus:outline-none px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-orange md:text-xl bg-white rounded-full ring-6 ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:text-white focus:bg-brand-orange-active focus:ring-brand-orange-active',
-        'pricing-secondary' => 'focus:outline-none px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-orange md:text-xl bg-white rounded-full hover:text-brand-orange hover:bg-brand-white-hover focus:text-brand-orange-active focus:bg-white',
-        
-        'about-primary' => 'flex-1 focus:outline-none px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-orange md:text-xl bg-white rounded-full hover:text-brand-orange hover:bg-brand-white-hover focus:text-brand-orange-active focus:bg-whitek',
-        'about-secondary' => 'flex-1 focus:outline-none px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-white rounded-full ring-6 ring-inset ring-white hover:ring-brand-white-hover focus:ring-brand-grey',
-
-        'footer-primary' => 'focus:outline-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-orange md:text-xl bg-white rounded-full hover:text-brand-orange hover:bg-brand-white-hover focus:text-brand-orange-active focus:bg-whitek',
-        'footer-secondary' => 'focus:outline-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-white rounded-full ring-6 ring-inset ring-white hover:ring-brand-white-hover focus:ring-brand-grey',
-
-        'team-navigation' => 'bg-white px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange flex focus:outline-none hover:bg-brand-orange hover:text-white focus:bg-brand-orange focus:text-white',
+        'pricing-primary' => $base . ' text-brand-orange bg-white ring-6 ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:text-white focus:bg-brand-orange-active focus:ring-brand-orange-active',
+        'pricing-secondary' => $base . ' text-brand-orange bg-white hover:text-brand-orange hover:bg-brand-white-hover focus:text-brand-orange-active focus:bg-white',
+        'about-primary' => $base . ' text-brand-orange bg-white hover:text-brand-orange hover:bg-brand-white-hover focus:text-brand-orange-active focus:bg-white',
+        'about-secondary' => $base . ' text-base text-white ring-6 ring-inset ring-white hover:ring-brand-white-hover focus:ring-brand-grey',
+        'team-navigation' => 'px-6 py-4 h-[48px] flex items-center justify-center font-semibold text-xl text-brand-orange bg-white rounded-full ring-6 ring-inset ring-brand-orange focus:outline-none hover:bg-brand-orange hover:text-white focus:bg-brand-orange focus:text-white',
     ];
 }
 
@@ -147,32 +144,6 @@ function afternoon_render_button($link_array, $button_type = 'primary', $additio
  */
 function afternoon_image_uri($path = '') {
     return get_template_directory_uri() . '/images/' . ltrim($path, '/');
-}
-
-/**
- * Render video background
- *
- * @param string $video Video path relative to /images/ directory
- * @param string $classes Additional CSS classes
- * @param bool $echo Whether to echo or return the output
- * @return string|void
- */
-function afternoon_video_background($video = 'features/blobs.mp4', $classes = '', $echo = true) {
-    $default_classes = 'w-full h-full absolute inset-0 object-cover blur-xl scale-150 opacity-50';
-    $all_classes = $classes ? $default_classes . ' ' . esc_attr($classes) : $default_classes;
-
-    $output = sprintf(
-        '<video autoplay loop muted playsinline class="%s"><source src="%s" type="video/mp4"></video>',
-        $all_classes,
-        esc_url(afternoon_image_uri($video))
-    );
-
-    if ($echo) {
-        echo $output;
-        return;
-    }
-
-    return $output;
 }
 
 /**
