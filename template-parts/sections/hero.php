@@ -32,5 +32,5 @@ $intro_talk_button = isset($intro['talk_with_us_button']) ? $intro['talk_with_us
 </section>
 
 <div class="md:hidden -mx-5 w-screen max-w-none aspect-[393/314] relative">
-  <img width="393" height="314" loading="lazy" src="<?= esc_url(afternoon_image_uri('introduction/background-mobile.jpg')); ?>" alt="" fetchpriority="high" class="inset-0 absolute object-cover w-full h-auto" />
+  <img width="393" height="314" src="<?= esc_url(afternoon_image_uri('introduction/background-mobile.jpg')); ?>" alt="" fetchpriority="high" class="inset-0 absolute object-cover w-full h-auto" />
 </div>

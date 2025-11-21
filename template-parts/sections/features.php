@@ -23,8 +23,8 @@ $typewriter_words = array_map(function ($option) {
     <p class="text-xl/[125%] lg:text-2xl/[130%] lg:mr-14 text-brand-secondary-black font-semibold max-w-[313px]"><?= $features_subtitle; ?></p>
   </div>
   <div class="mt-4 md:mt-10 rounded-32 bg-brand-orange overflow-hidden relative flex items-center justify-center md:h-[550px]">
-    <video autoplay loop muted playsinline class="md:absolute top-0 bottom-0 w-full md:max-w-[430px]">
-      <source src="<?= esc_url(afternoon_image_uri('features/next-steps-example.mp4')); ?>" type="video/mp4">
+    <video loop muted playsinline class="md:absolute top-0 bottom-0 w-full md:max-w-[430px]" data-lazy-video>
+      <source data-src="<?= esc_url(afternoon_image_uri('features/next-steps-example.mp4')); ?>" type="video/mp4">
     </video>
   </div>
 
@@ -68,8 +68,8 @@ $typewriter_words = array_map(function ($option) {
   </div>
 
   <div class="mt-6">
-    <video autoplay loop muted playsinline class="w-full h-auto aspect-[1203/473] object-cover object-top rounded-58">
-      <source src="<?= esc_url(afternoon_image_uri('features/ai-example.mp4')); ?>" type="video/mp4">
+    <video loop muted playsinline class="w-full h-auto aspect-[1203/473] object-cover object-top rounded-58" data-lazy-video>
+      <source data-src="<?= esc_url(afternoon_image_uri('features/ai-example.mp4')); ?>" type="video/mp4">
     </video>
   </div>
 </section>
