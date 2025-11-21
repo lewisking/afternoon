@@ -22,8 +22,7 @@ img {
 }
 
 a, button,
-.group span,
-svg path {
+.group span {
   @apply transition duration-200 ease-in-out;
 }
 
