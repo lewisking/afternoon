@@ -1,8 +1,11 @@
-<div class="fixed w-full z-[100]" x-data="{mobileNavigationOpen:false}" x-init="window.addEventListener('resize', () => { mobileNavigationOpen = false })">
+<div class="fixed w-full z-[100] transition-all duration-300"
+  x-data="{mobileNavigationOpen:false, scrolled:false}"
+  x-init="window.addEventListener('resize', () => { mobileNavigationOpen = false }); window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+  :class="{ 'bg-white/10 backdrop-blur-sm' : scrolled }">
   <div class="max-w-screen-xl mx-auto px-5 md:px-8 <?php echo is_front_page() ? 'lg:pl-16 lg:pr-10' : 'lg:px-10'; ?>">
-    <header class="relative pt-10 md:pt-5 flex items-center justify-between">
+    <header class="relative py-10 md:py-5 flex items-center justify-between">
       <a href="<?= esc_url(site_url()); ?>" title="Go to homepage" class="focus:outline-none group">
-        
+
         <svg width="175" height="40" viewBox="0 0 175 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_1_2)">
             <mask id="mask0_1_2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
@@ -41,7 +44,7 @@
           ));
           ?>
         </div>
-        <a href="https://portal.afternoon.co.uk/" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-white hover:text-brand-black focus:bg-white focus:text-brand-black focus:outline-none">Log in</a>
+        <a href="https://portal.afternoon.co.uk/" class="font-bold px-5 md:px-10 py-[9px] border border-white rounded-full hover:bg-brand-orange hover:text-white focus:bg-brand-orange-active hover:border-brand-orange focus:border-brand-orange-active focus:text-white focus:outline-none">Log in</a>
       </div>
 
       <button title="Toggle mobile navigation" x-on:click="mobileNavigationOpen = !mobileNavigationOpen" class="md:hidden w-12 h-12 rounded-2xl bg-brand-black flex items-center justify-center">

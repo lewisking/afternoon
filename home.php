@@ -53,8 +53,8 @@ get_header();
         $features_options = isset($features['options']) && is_array($features['options']) ? $features['options'] : [];
         $features_secondary = isset($features['secondary_features']) && is_array($features['secondary_features']) ? $features['secondary_features'] : [];
 
-        $typewriter_words = array_map(function($option) {
-            return isset($option['title']) ? esc_js($option['title']) : '';
+        $typewriter_words = array_map(function ($option) {
+          return isset($option['title']) ? esc_js($option['title']) : '';
         }, $features_options);
         ?>
         <div class="gap-5 md:flex-row flex-col flex md:items-end justify-between lg:px-4">
@@ -66,7 +66,7 @@ get_header();
         </div>
         <div class="mt-4 md:mt-10 rounded-32 bg-brand-orange overflow-hidden relative flex items-center justify-center md:h-[550px]">
 
-          <?php afternoon_video_background('features/blobs.mp4', 'hidden md:block w-auto h-auto'); ?>
+          <spline-viewer url="https://prod.spline.design/4cJH-JQNw2YG4yma/scene.splinecode" class="w-full h-full absolute inset-0 object-cover hidden md:block"></spline-viewer>
 
           <video autoplay loop muted playsinline class="md:absolute top-0 bottom-0 w-full md:max-w-[430px]">
             <source src="<?= esc_url(afternoon_image_uri('features/next-steps-example.mp4')); ?>" type="video/mp4">
@@ -79,16 +79,22 @@ get_header();
             $feature_subtitle = isset($feature['subtitle']) ? esc_html($feature['subtitle']) : '';
             $feature_image_url = isset($feature['image']['url']) ? esc_url($feature['image']['url']) : '';
             $feature_image_alt = isset($feature['image']['alt']) ? esc_attr($feature['image']['alt']) : $feature_title;
+            $animation_slug = sanitize_title($feature['title']);
+            $animation_path = get_template_directory_uri() . '/animations/' . $animation_slug . '.json';
+
+            // Automate meetings plays once on view, others loop
+            $is_meetings = strpos(strtolower($feature['title']), 'meeting') !== false;
+            $loop_attr = $is_meetings ? '' : 'loop';
+            $autoplay_attr = $is_meetings ? '' : 'autoplay';
+            $data_trigger = $is_meetings ? 'data-play-on-view="true"' : '';
           ?>
             <div class="flex flex-col gap-3 md:gap-6 <?= $index == 2 ? 'md:col-span-2 lg:col-span-1' : ''; ?>">
               <div class="flex flex-col gap-1 md:px-3">
                 <h4 class="text-brand-black text-xl md:text-2xl font-bold leading-[normal]"><?= $feature_title; ?></h4>
                 <p class="text-base/[24px] font-medium text-brand-black/90"><?= $feature_subtitle; ?></p>
               </div>
-              <div class="rounded-32 bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden <?= $index != 1 ? 'px-4' : ''; ?> py-14">
-                <?php if ($feature_image_url) : ?>
-                  <img loading="lazy" src="<?= $feature_image_url; ?>" alt="<?= $feature_image_alt; ?>" />
-                <?php endif; ?>
+              <div class="rounded-32 bg-brand-orange aspect-[390/443] flex items-center justify-center overflow-hidden">
+                <dotlottie-player src="<?= esc_url($animation_path); ?>" background="transparent" speed="1" style="width: 100%; height: 100%;" <?= $loop_attr; ?> <?= $autoplay_attr; ?> <?= $data_trigger; ?>></dotlottie-player>
               </div>
             </div>
           <?php } ?>
@@ -134,23 +140,23 @@ get_header();
           </div>
 
           <div class="flex flex-col lg:flex-row md:w-2/3 gap-6">
-          <?php foreach ($pricing_types as $index => $type) {
-            $pre_title = isset($type['pre-title']) ? esc_html($type['pre-title']) : '';
-            $title = isset($type['title']) ? esc_html($type['title']) : '';
-            $interval = isset($type['interval']) ? esc_html($type['interval']) : '';
-            $description = isset($type['description']) ? esc_html($type['description']) : '';
-            $link = isset($type['link']) ? $type['link'] : [];
-            $button_type = $index === 1 ? 'pricing-primary' : 'pricing-secondary';
-          ?>
-            <div class="p-8 rounded-40 <?= $index === 1 ? 'bg-white' : 'bg-brand-orange'; ?> flex-1 flex flex-col">
-              <span class="text-[24px]/[normal] font-bold <?= $index === 1 ? 'text-black/70' : 'text-white/90'; ?>"><?= $pre_title; ?></span>
-              <h4 class="text-[48px]/[110%] tracking-tighter-3xl font-bold <?= $index === 1 ? 'text-black' : 'text-white'; ?> mt-1 mb-3"><?= $title; ?><?php if ($interval) { ?>
-                <span class="text-xl font-semibold">/<?= $interval; ?></span><?php } ?>
-              </h4>
-              <p class="flex-1 text-xl/[130%] font-medium <?= $index === 1 ? 'text-black' : 'text-white'; ?> mb-8"><?= $description; ?></p>
-              <?= afternoon_render_button($link, $button_type); ?>
-            </div>
-          <?php } ?>
+            <?php foreach ($pricing_types as $index => $type) {
+              $pre_title = isset($type['pre-title']) ? esc_html($type['pre-title']) : '';
+              $title = isset($type['title']) ? esc_html($type['title']) : '';
+              $interval = isset($type['interval']) ? esc_html($type['interval']) : '';
+              $description = isset($type['description']) ? esc_html($type['description']) : '';
+              $link = isset($type['link']) ? $type['link'] : [];
+              $button_type = $index === 1 ? 'pricing-primary' : 'pricing-secondary';
+            ?>
+              <div class="p-8 rounded-40 <?= $index === 1 ? 'bg-white' : 'bg-brand-orange'; ?> flex-1 flex flex-col">
+                <span class="text-[24px]/[normal] font-bold <?= $index === 1 ? 'text-black/70' : 'text-white/90'; ?>"><?= $pre_title; ?></span>
+                <h4 class="text-[48px]/[110%] tracking-tighter-3xl font-bold <?= $index === 1 ? 'text-black' : 'text-white'; ?> mt-1 mb-3"><?= $title; ?><?php if ($interval) { ?>
+                  <span class="text-xl font-semibold">/<?= $interval; ?></span><?php } ?>
+                </h4>
+                <p class="flex-1 text-xl/[130%] font-medium <?= $index === 1 ? 'text-black' : 'text-white'; ?> mb-8"><?= $description; ?></p>
+                <?= afternoon_render_button($link, $button_type); ?>
+              </div>
+            <?php } ?>
           </div>
         </div>
       </div>
@@ -183,7 +189,7 @@ get_header();
               </div>
             </div>
           </div>
-          <?php afternoon_video_background(); ?>
+          <spline-viewer url="https://prod.spline.design/4cJH-JQNw2YG4yma/scene.splinecode" class="w-full h-full absolute inset-0 object-cover"></spline-viewer>
         </div>
       </div>
     </section>
@@ -196,10 +202,10 @@ get_header();
             <h3 class="text-[28px]/[110%] md:text-[48px]/[110%] tracking-tighter-xl md:tracking-tighter-3xl font-bold text-black">FAQ</h3>
 
             <div class="md:p-1 md:bg-brand-secondary-grey md:rounded-full flex gap-0.5 overflow-auto whitespace-nowrap scrollbar-hide">
-              <button @click="activeCategory = 'data'" :class="{ 'bg-brand-black text-white': activeCategory === 'data', 'hover:bg-brand-black/10 focus:bg-brand-black/10': activeCategory !== 'data' }" class="rounded-full  focus:outline-none font-semibold py-2 px-4 text-base/[20px] text-brand-black">Data & security</button>
-              <button @click="activeCategory = 'ai'" :class="{ 'bg-brand-black text-white': activeCategory === 'ai', 'hover:bg-brand-black/10 focus:bg-brand-black/10': activeCategory !== 'ai' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">How AI works</button>
-              <button @click="activeCategory = 'finance'" :class="{ 'bg-brand-black text-white': activeCategory === 'finance', 'hover:bg-brand-black/10 focus:bg-brand-black/10': activeCategory !== 'finance' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">Finance</button>
-              <button @click="activeCategory = 'team'" :class="{ 'bg-brand-black text-white': activeCategory === 'team', 'hover:bg-brand-black/10 focus:bg-brand-black/10': activeCategory !== 'team' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">Our team</button>
+              <button @click="activeCategory = 'data'" :class="{ 'bg-brand-black text-white': activeCategory === 'data', 'hover:bg-faq-hover focus:text-white hover:text-white focus:bg-faq-hover focus:text-white hover:text-white': activeCategory !== 'data' }" class="rounded-full  focus:outline-none font-semibold py-2 px-4 text-base/[20px] text-brand-black">Data & security</button>
+              <button @click="activeCategory = 'ai'" :class="{ 'bg-brand-black text-white': activeCategory === 'ai', 'hover:bg-faq-hover focus:text-white hover:text-white focus:bg-faq-hover focus:text-white hover:text-white': activeCategory !== 'ai' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">How AI works</button>
+              <button @click="activeCategory = 'finance'" :class="{ 'bg-brand-black text-white': activeCategory === 'finance', 'hover:bg-faq-hover focus:text-white hover:text-white focus:bg-faq-hover focus:text-white hover:text-white': activeCategory !== 'finance' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">Finance</button>
+              <button @click="activeCategory = 'team'" :class="{ 'bg-brand-black text-white': activeCategory === 'team', 'hover:bg-faq-hover focus:text-white hover:text-white focus:bg-faq-hover focus:text-white hover:text-white': activeCategory !== 'team' }" class="rounded-full  focus:outline-none font-medium py-2 px-4 text-base/[20px] text-brand-black">Our team</button>
             </div>
           </div>
 
@@ -260,9 +266,11 @@ get_header();
               $member_image_alt = isset($member['image']['alt']) ? esc_attr($member['image']['alt']) : '';
               $member_name = isset($member['name']) ? esc_html($member['name']) : '';
               $member_link = isset($member['link']) && is_array($member['link']) && !empty($member['link']['url']) ? $member['link'] : null;
+              $member_role = isset($member['role']) ? esc_html($member['role']) : '';
+
             ?>
               <div class="relative bg-brand-orange rounded-full p-4 md:p-0 md:rounded-none md:bg-transparent w-[calc(100dvw-2.5rem)] md:w-auto team-member flex items-center flex-shrink-0 min-w-fit snap-center md:snap-align-none" :class="{ 'md:opacity-50': activeMember !== null && activeMember !== <?= $index; ?> }">
-                <div class="rounded-full  focus:outline-none bg-white/20 aspect-[120/168] w-full md:w-[7.5rem] shadow-team  overflow-hidden cursor-pointer h-full" @click.stop="activeMember = activeMember === <?= $index; ?> ? null : <?= $index; ?>; if(activeMember === <?= $index; ?>) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
+                <div class="rounded-full  border border-brand-white-hover focus:outline-none bg-white/20 aspect-[120/168] w-full md:w-[7.5rem] shadow-team  overflow-hidden cursor-pointer h-full" @click.stop="activeMember = activeMember === <?= $index; ?> ? null : <?= $index; ?>; if(activeMember === <?= $index; ?>) { setTimeout(() => { const container = $refs.teamContainer; const member = $el.closest('.team-member'); const padding = 48; const memberLeft = member.offsetLeft; const memberWidth = member.offsetWidth; const containerWidth = container.offsetWidth; const scrollLeft = container.scrollLeft; const memberRight = memberLeft + memberWidth; const visibleLeft = scrollLeft + padding; const visibleRight = scrollLeft + containerWidth - padding; if (memberLeft < visibleLeft || memberRight > visibleRight) { const scrollPos = memberLeft - padding; container.scrollTo({ left: scrollPos, behavior: 'smooth' }); } }, 350); }">
                   <?php if ($member_image_url) : ?>
                     <img src="<?= $member_image_url; ?>" alt="<?= $member_image_alt; ?>" class="w-full h-full object-cover pt-5 object-top" />
                   <?php endif; ?>
@@ -270,12 +278,18 @@ get_header();
                 <div class="md:h-full flex items-center justify-center flex-col absolute md:static left-0 bottom-[-130px] opacity-100 max-w-none team-member-details whitespace-nowrap overflow-hidden transition-all duration-300 ease-in-out" :class="activeMember === <?= $index; ?> ? 'md:max-w-xs md:opacity-100' : 'md:max-w-0 md:opacity-0'">
                   <div class="md:pl-6 md:pr-3">
                     <h4 class="md:text-white text-[24px]/[110%] md:text-[32px]/[110%] tracking-tighter-lg md:tracking-tighter-2xl font-bold"><?= str_replace(' ', '<br>', $member_name); ?></h4>
-                    <?php if ($member_link) { ?>
-                      <a href="<?= esc_url($member_link['url']); ?>" target="<?= esc_attr($member_link['target']); ?>" class="flex gap-2 items-center justify-start font-semibold md:text-white/70  md:hover:text-white md:focus:text-white text-base/[110%] tracking-tighter-sm mt-4 focus:underline hover:underline outline-none">
-                        <span><?= esc_html($member_link['title']); ?></span>
-                        <?php afternoon_svg('external-link'); ?>
-                      </a>
-                    <?php } ?>
+
+                    <div class="flex gap-3  mt-4">
+                      <?php if ($member_role) { ?>
+                        <span class="font-semibold md:text-white text-base/[110%] tracking-tighter-sm"><?= $member_role; ?></span>
+                      <?php } ?>
+                      <?php if ($member_link) { ?>
+                        <a href="<?= esc_url($member_link['url']); ?>" target="<?= esc_attr($member_link['target']); ?>" class="flex gap-2 items-center justify-start font-semibold md:text-white text-base/[110%] tracking-tighter-sm focus:underline hover:underline outline-none">
+                          <span><?= esc_html($member_link['title']); ?></span>
+                          <?php afternoon_svg('external-link'); ?>
+                        </a>
+                      <?php } ?>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -283,10 +297,10 @@ get_header();
           </div>
 
           <div class="absolute bottom-[40px] right-0 md:hidden flex gap-2">
-            <button title="Previous team member" @click="const members = $refs.teamContainer.querySelectorAll('.team-member'); const container = $refs.teamContainer; const containerLeft = container.scrollLeft; const targetMember = Array.from(members).reverse().find(member => member.offsetLeft < containerLeft - 10); if(targetMember) { container.scrollTo({ left: targetMember.offsetLeft, behavior: 'smooth' }); }" class="bg-white rotate-180 px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange flex focus:outline-none hover:bg-brand-orange hover:text-white focus:bg-brand-orange focus:text-white">
+            <button title="Previous team member" @click="const members = $refs.teamContainer.querySelectorAll('.team-member'); const container = $refs.teamContainer; const containerLeft = container.scrollLeft; const targetMember = Array.from(members).reverse().find(member => member.offsetLeft < containerLeft - 10); if(targetMember) { container.scrollTo({ left: targetMember.offsetLeft, behavior: 'smooth' }); }" class="bg-white rotate-180 px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange flex focus:outline-none  hover:ring-brand-orange-hover hover:text-brand-orange-hover focus:ring-brand-orange-active focus:text-brand-orange-active">
               <?php afternoon_svg('arrow'); ?>
             </button>
-            <button title="Next team member" @click="const members = $refs.teamContainer.querySelectorAll('.team-member'); const container = $refs.teamContainer; const containerLeft = container.scrollLeft; const containerWidth = container.offsetWidth; const targetMember = Array.from(members).find(member => member.offsetLeft > containerLeft + 10); if(targetMember) { container.scrollTo({ left: targetMember.offsetLeft, behavior: 'smooth' }); }" class="bg-white px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange flex focus:outline-none hover:bg-brand-orange hover:text-white focus:bg-brand-orange focus:text-white">
+            <button title="Next team member" @click="const members = $refs.teamContainer.querySelectorAll('.team-member'); const container = $refs.teamContainer; const containerLeft = container.scrollLeft; const containerWidth = container.offsetWidth; const targetMember = Array.from(members).find(member => member.offsetLeft > containerLeft + 10); if(targetMember) { container.scrollTo({ left: targetMember.offsetLeft, behavior: 'smooth' }); }" class="bg-white px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange flex focus:outline-none  hover:ring-brand-orange-hover hover:text-brand-orange-hover focus:ring-brand-orange-active focus:text-brand-orange-active">
               <?php afternoon_svg('arrow'); ?>
             </button>
           </div>
@@ -294,14 +308,14 @@ get_header();
 
 
         <?php if (!empty($team_button) && isset($team_button['url']) && isset($team_button['title'])) : ?>
-        <div class="mt-4 flex items-center justify-center">
-          <a href="<?= esc_url($team_button['url']); ?>" target="<?= esc_attr($team_button['target']); ?>" class="flex gap-1 w-full md:w-auto group focus:outline-none">
-            <span class="w-full md:w-auto bg-brand-orange md:bg-transparent text-white px-6 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl md:text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange group-hover:bg-brand-orange group-hover:text-white group-focus:bg-brand-orange group-focus:text-white"><?= esc_html($team_button['title']); ?></span>
-            <span class="px-8 py-4 h-[60px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange hidden md:flex">
-              <?php afternoon_svg('arrow', '', ['stroke' => '#F75F24']); ?>
-            </span>
-          </a>
-        </div>
+          <div class="mt-4 flex items-center justify-center">
+            <a href="<?= esc_url($team_button['url']); ?>" target="<?= esc_attr($team_button['target']); ?>" class="flex gap-1 w-full md:w-auto group focus:outline-none">
+              <span class="w-full md:w-auto bg-brand-orange md:bg-transparent text-white px-6 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl md:text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange group-hover:bg-brand-orange-hover group-hover:ring-brand-orange-hover group-hover:text-white group-focus:bg-brand-orange-active group-focus:ring-brand-orange-active group-focus:text-white"><?= esc_html($team_button['title']); ?></span>
+              <span class="px-8 py-4 h-[60px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange group-hover:ring-brand-orange-hover group-hover:text-brand-orange-hover group-focus:ring-brand-orange-active group-focus:text-brand-orange-active hidden md:flex">
+                <?php afternoon_svg('arrow', '', ['stroke' => 'currentColor']); ?>
+              </span>
+            </a>
+          </div>
         <?php endif; ?>
       </div>
 

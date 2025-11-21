@@ -11,7 +11,7 @@ $footer_talk_button = isset($footer['talk_with_us_button']) ? $footer['talk_with
 <?php } ?>
 <footer class="relative overflow-hidden <?php if ($footer_title) { ?>-mt-[52px] pt-[52px]<?php } ?> bg-brand-orange">
 
-  <?php afternoon_video_background(); ?>
+  <spline-viewer url="https://prod.spline.design/4cJH-JQNw2YG4yma/scene.splinecode" class="w-full h-full absolute inset-0 object-cover"></spline-viewer>
 
   <?php if ($footer_title) { ?>
     <div class="relative z-10 py-32">
@@ -20,8 +20,8 @@ $footer_talk_button = isset($footer['talk_with_us_button']) ? $footer['talk_with
         <p class="mt-3 text-white text-base/[130%] md:text-xl/[130%] font-semibold mx-auto max-w-[590px]"><?= $footer_subtitle; ?></p>
 
         <div class="mt-5 md:mt-11 flex items-center justify-center gap-1.5">
-          <?= afternoon_render_button($footer_free_trial, 'white-primary'); ?>
-          <?= afternoon_render_button($footer_talk_button, 'white-secondary'); ?>
+          <?= afternoon_render_button($footer_free_trial, 'footer-primary'); ?>
+          <?= afternoon_render_button($footer_talk_button, 'footer-secondary'); ?>
         </div>
       </div>
     </div>

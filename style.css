@@ -27,10 +27,6 @@ svg path {
   @apply transition duration-200 ease-in-out;
 }
 
-a, button {
-  @apply active:scale-90;
-}
-
 /* FAQ description links */
 [x-show^="openFaq"] p a {
   @apply underline;

@@ -75,14 +75,18 @@ add_filter('nav_menu_link_attributes', 'afternoon_add_menu_link_class', 10, 3);
  */
 function afternoon_button_classes() {
     return [
-        'primary' => 'px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full ring-6 ring-inset ring-brand-orange hover:bg-white hover:text-brand-orange focus:outline-none focus:text-brand-orange focus:bg-white',
-        'secondary' => 'px-4 md:px-9 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:outline-none focus:bg-brand-orange focus:text-white',
-        'white-primary' => 'px-5 md:px-10 py-4 h-[60px] flex items-center justify-center font-semibold text-brand-orange text-xl bg-white rounded-full hover:bg-brand-black hover:text-white focus:bg-brand-black focus:text-white focus:outline-none',
-        'white-secondary' => 'px-9 py-4 h-[60px] flex items-center justify-center font-semibold text-xl text-white rounded-full ring-6 ring-inset ring-white hover:bg-white hover:text-brand-black focus:bg-white focus:text-brand-black focus:outline-none',
-        'pricing-primary' => 'focus:outline-none px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full ring-6 ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:text-white focus:bg-brand-orange',
-        'pricing-secondary' => 'focus:outline-none px-8 py-4 h-[60px] flex items-center justify-center font-bold text-brand-orange text-xl bg-white rounded-full hover:text-white hover:bg-brand-black focus:text-white focus:bg-brand-black',
-        'about-primary' => 'flex-1 px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-black text-base md:text-xl bg-white hover:bg-brand-black hover:text-white rounded-full focus:outline-none focus:text-white focus:bg-brand-black',
-        'about-secondary' => 'flex-1 px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-white rounded-full focus:outline-none ring-6 ring-inset ring-white hover:bg-white hover:text-brand-black focus:text-brand-black focus:bg-white',
+        'primary' => 'px-4 md:px-10 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-white text-base md:text-xl bg-brand-orange rounded-full ring-1 ring-inset ring-brand-orange hover:bg-brand-orange-hover focus:outline-none focus:bg-brand-orange-active',
+        'secondary' => 'px-4 md:px-9 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-semibold text-base md:text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:outline-none focus:bg-brand-orange-active focus:ring-brand-orange-active focus:text-white',
+        
+        'pricing-primary' => 'focus:outline-none px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-orange md:text-xl bg-white rounded-full ring-6 ring-inset ring-brand-orange hover:bg-brand-orange hover:text-white focus:text-white focus:bg-brand-orange-active focus:ring-brand-orange-active',
+        'pricing-secondary' => 'focus:outline-none px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-orange md:text-xl bg-white rounded-full hover:text-brand-orange hover:bg-brand-white-hover focus:text-brand-orange-active focus:bg-white',
+        
+        'about-primary' => 'flex-1 focus:outline-none px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-orange md:text-xl bg-white rounded-full hover:text-brand-orange hover:bg-brand-white-hover focus:text-brand-orange-active focus:bg-whitek',
+        'about-secondary' => 'flex-1 focus:outline-none px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-white rounded-full ring-6 ring-inset ring-white hover:ring-brand-white-hover focus:ring-brand-grey',
+
+        'footer-primary' => 'focus:outline-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-brand-orange md:text-xl bg-white rounded-full hover:text-brand-orange hover:bg-brand-white-hover focus:text-brand-orange-active focus:bg-whitek',
+        'footer-secondary' => 'focus:outline-none px-4 md:px-8 py-4 h-[42px] md:h-[60px] flex items-center justify-center font-bold text-base md:text-xl text-white rounded-full ring-6 ring-inset ring-white hover:ring-brand-white-hover focus:ring-brand-grey',
+
         'team-navigation' => 'bg-white px-6 py-4 h-[48px] items-center justify-center font-semibold text-xl text-brand-orange rounded-full ring-6 ring-inset ring-brand-orange flex focus:outline-none hover:bg-brand-orange hover:text-white focus:bg-brand-orange focus:text-white',
     ];
 }

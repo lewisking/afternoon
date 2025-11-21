@@ -10,7 +10,7 @@
         if (have_posts()) :
           while (have_posts()) : the_post();
         ?>
-            <h1 class="text-2xl font-semibold mb-4">
+            <h1 class="text-[32px]/[38px] md:text-[48px]/[60px] lg:text-[52px]/[60px] text-brand-black font-bold tracking-tighter-4xl mb-4">
               <?php the_title(); ?>
             </h1>
             <article class="">
