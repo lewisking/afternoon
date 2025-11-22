@@ -8,7 +8,7 @@ get_header();
 
 <div class="relative">
   <picture>
-    <source media="(min-width: 768px)" srcset="<?= esc_url(afternoon_image_uri('introduction/background.jpg')); ?>">
+    <source media="(min-width: 768px)" srcset="<?= esc_url(afternoon_image_uri('introduction/background.png')); ?>">
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" fetchpriority="high" class="select-none w-full h-auto inset-0 absolute object-cover md:block hidden" />
   </picture>
   <?php get_template_part('template-parts/navigation') ?>

@@ -27,7 +27,7 @@ a, button,
 }
 
 /* FAQ description links */
-[x-show^="openFaq"] p a {
+.faq-content a {
   @apply underline;
 }
 

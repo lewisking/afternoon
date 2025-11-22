@@ -14,6 +14,8 @@ $about_talk_button = isset($about['talk_with_us_button']) ? $about['talk_with_us
 <section id="about" class="-mt-12 md:-mt-72 pt-12 md:pt-72">
   <div class="max-w-screen-xl mx-auto px-5 md:px-10 relative z-10">
     <div class=" relative overflow-hidden bg-brand-orange p-7 md:p-12 rounded-52">
+      <img src="<?= get_template_directory_uri() ?>/images/generic-background.jpg" alt="" class="absolute top-0 left-0 w-full h-full object-cover" />
+
       <div class="relative z-10 flex flex-col lg:flex-row items-start justify-between md:gap-10">
         <div class="flex flex-col gap-5 flex-1 max-w-[472px]">
           <h3 class="text-[28px]/[110%] tracking-tighter-xl md:text-[48px]/[110%] md:tracking-tighter-3xl font-bold text-white"><?= $about_title; ?></h3>

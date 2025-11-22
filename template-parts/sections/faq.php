@@ -37,7 +37,7 @@ $faqs = afternoon_get_acf_field('faq', []);
               </div>
 
               <div x-show="openFaq === <?= $index; ?>" x-collapse.duration.500ms>
-                <div class="p-6 md:p-8 pt-0 md:pt-0 text-lg/[135%] md:text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
+                <div class="faq-content p-6 md:p-8 pt-0 md:pt-0 text-lg/[135%] md:text-xl/[135%] tracking-[-0.2px] text-brand-black flex flex-col gap-2">
                   <?php if ($faq_description) { ?>
                     <?= $faq_description; ?>
                   <?php } else { ?>

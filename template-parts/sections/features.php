@@ -12,13 +12,16 @@ $features_secondary = isset($features['secondary_features']) && is_array($featur
 $typewriter_words = array_map(function ($option) {
   return isset($option['title']) ? esc_js($option['title']) : '';
 }, $features_options);
+
+// Filter out empty strings
+$typewriter_words = array_filter($typewriter_words);
 ?>
 
 <section class="lg:pt-24 xl:pt-36 pb-10" id="features">
   <div class="gap-5 md:flex-row flex-col flex md:items-end justify-between lg:px-4">
     <h3 class="text-[28px]/[110%] tracking-tighter-xl md:text-[32px]/[110%] lg:text-[48px]/[110%] md:tracking-tighter-3xl text-brand-black font-bold max-w-[526px]">
       <?= $features_title; ?>
-      <span class="block lg:inline" x-data="{ words: ['<?= implode("','", $typewriter_words); ?>'] }" x-typewriter.1500ms.cursor="words"></span>
+      <span class="block lg:inline" x-data="{ texts: ['<?= implode("','", $typewriter_words); ?>'] }" x-typewriter.1500ms.cursor="texts"></span>
     </h3>
     <p class="text-xl/[125%] lg:text-2xl/[130%] lg:mr-14 text-brand-secondary-black font-semibold max-w-[313px]"><?= $features_subtitle; ?></p>
   </div>

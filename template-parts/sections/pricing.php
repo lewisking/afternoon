@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pricing Section
  */
@@ -27,13 +28,17 @@ $pricing_types = isset($pricing['type']) && is_array($pricing['type']) ? $pricin
           $link = isset($type['link']) ? $type['link'] : [];
           $button_type = $index === 1 ? 'pricing-primary' : 'pricing-secondary';
         ?>
-          <div class="p-8 rounded-40 <?= $index === 1 ? 'bg-white' : 'bg-brand-orange'; ?> flex-1 flex flex-col">
-            <span class="text-[24px]/[normal] font-bold <?= $index === 1 ? 'text-black/70' : 'text-white/90'; ?>"><?= $pre_title; ?></span>
-            <h4 class="text-[48px]/[110%] tracking-tighter-3xl font-bold <?= $index === 1 ? 'text-black' : 'text-white'; ?> mt-1 mb-3"><?= $title; ?><?php if ($interval) { ?>
+          <div class="p-8 rounded-40 overflow-hidden relative <?= $index === 1 ? 'bg-white' : 'bg-brand-orange'; ?> flex-1 flex flex-col">
+
+            <?php if ($index != 1) { ?>
+              <img src="<?= get_template_directory_uri() ?>/images/generic-background.jpg" alt="" class="absolute top-0 left-0 w-full h-full object-cover" />
+            <?php } ?>
+            <span class="relative text-[24px]/[normal] font-bold <?= $index === 1 ? 'text-black/70' : 'text-white/90'; ?>"><?= $pre_title; ?></span>
+            <h4 class="relative text-[48px]/[110%] tracking-tighter-3xl font-bold <?= $index === 1 ? 'text-black' : 'text-white'; ?> mt-1 mb-3"><?= $title; ?><?php if ($interval) { ?>
               <span class="text-xl font-semibold">/<?= $interval; ?></span><?php } ?>
             </h4>
-            <p class="flex-1 text-xl/[130%] font-medium <?= $index === 1 ? 'text-black' : 'text-white'; ?> mb-8"><?= $description; ?></p>
-            <?= afternoon_render_button($link, $button_type); ?>
+            <p class="relative flex-1 text-xl/[130%] font-medium <?= $index === 1 ? 'text-black' : 'text-white'; ?> mb-8"><?= $description; ?></p>
+            <?= afternoon_render_button($link, $button_type, 'relative'); ?>
           </div>
         <?php } ?>
       </div>
